@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wild Jasmine - Natural Handcrafted Skincare & Beauty Products</title>
+    <meta name="description" content="Discover Wild Jasmine's collection of natural, handcrafted skincare, bath & body products, and candles. Ethically sourced, sustainable beauty solutions.">
+    <meta name="keywords" content="natural skincare, organic beauty, handmade soap, bath bombs, soy candles, cruelty-free products, sustainable beauty">
+    <meta name="author" content="Wild Jasmine">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Wild Jasmine - Natural Handcrafted Beauty Products">
+    <meta property="og:description" content="Discover our collection of premium skincare and home fragrance products made with organic ingredients.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.wildjasmine.com">
+    <meta property="og:image" content="https://www.wildjasmine.com/images/social-share.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.wildjasmine.com">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Preload important resources -->
+    <link rel="preload" href="pics/Relax Soak Breathe Unwind (1000 x 400 px).png" as="image">
+    <link rel="preload" href="pics/1.png" as="image">
+    <link rel="preload" href="pics/2.png" as="image">
+    <link rel="preload" href="pics/3.png" as="image">
+    
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #8a7968;
+            --secondary: #a5a58d;
+            --accent: #b7b7a4;
+            --light-bg: #f8f7f2;
+            --light-text: #3a3a3a;
+            --dark-bg: #3a3a3a;
+            --dark-text: #f8f7f2;
+            --warm-tan: #d4c8be;
+            --soft-green: #c9d4c1;
+            --pattern-light: #f1f1f1;
+            --pattern-dark: #333333;
+            --transition: all 0.3s ease;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --box-shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        *:not(path) {
+            transition: var(--transition);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            color: var(--light-text);
+            overflow-x: hidden;
+        }
+
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            line-height: 1.2;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+        }
+
+        .hero-btn {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            background-color: #75665a;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .hero-btn:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.15);
+            transform: translateX(-100%);
+            transition: transform 0.3s;
+            z-index: -1;
+        }
+
+        .hero-btn:hover:after {
+            transform: translateX(0);
+        }
+
+        .btn-outline {
+            padding: 8px 20px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero-bg-img {
+           position: absolute;
+           top: 0; left: 0; width: 100%; height: 100%;
+           object-fit: cover;
+           z-index: 0;
+           pointer-events: none;
+           user-select: none;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 1;
+            opacity: 0.2;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            z-index: 2;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 0.8s ease-out 0.3s forwards;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        /* Floating PNG Styles */
+        .floating-png {
+            position: absolute;
+            z-index: 2;
+            max-width: 150px;
+            height: auto;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.9;
+            transition: var(--transition);
+            will-change: transform;
+        }
+
+        .floating-png:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4));
+            animation-play-state: paused;
+        }
+
+        .floating-soap {
+            top: 20%;
+            left: 10%;
+            animation: float 6s ease-in-out infinite, rotate 15s linear infinite;
+        }
+
+        .floating-bath-bomb {
+            bottom: 15%;
+            right: 10%;
+            max-width: 120px;
+            animation: float 7s ease-in-out 1s infinite;
+        }
+
+        .floating-lotion {
+            top: 30%;
+            right: 10%;
+            max-width: 250px;
+            animation: float 5.5s ease-in-out 1.5s infinite;
+        }
+
+        /* Category Section */
+        .categories {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+            position: relative;
+        }
+
+        body.dark-mode .categories {
+            background-color: var(--dark-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 0.4s forwards;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary);
+            left: 50%;
+            bottom: -15px;
+            transform: translateX(-50%);
+        }
+
+        .categories-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.05'%3E%3Cpath d='M30 30h30v30H30V30zm0-30h30v30H30V0zM0 30h30v30H0V30zM0 0h30v30H0V0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        body.dark-mode .categories-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M30 30h30v30H30V30zm0-30h30v30H30V0zM0 30h30v30H0V30zM0 0h30v30H0V0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .category-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        body.dark-mode .category-card {
+            background-color: #444;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .category-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .category-card:hover .category-img {
+            transform: scale(1.05);
+        }
+
+        .category-content {
+            padding: 20px;
+        }
+
+        .category-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .category-content p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        body.dark-mode .category-content p {
+            color: #ddd;
+        }
+
+        /* Product Section */
+        .featured-products {
+            padding: 80px 0;
+            background-color: var(--warm-tan);
+        }
+
+        body.dark-mode .featured-products {
+            background-color: #444;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        body.dark-mode .product-card {
+            background-color: #333;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .product-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        .product-content {
+            padding: 20px;
+        }
+
+        .product-badge {
+            display: inline-block;
+            background-color: var(--soft-green);
+            color: var(--light-text);
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        .add-to-cart {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-to-cart:hover {
+            background-color: #75665a;
+            transform: scale(1.1);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+            position: relative;
+        }
+
+        body.dark-mode .about {
+            background-color: var(--dark-bg);
+        }
+
+        .about-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000000' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        body.dark-mode .about-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .about-text h2 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s;
+        }
+
+        .about-image:hover {
+            transform: scale(1.02);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--soft-green);
+        }
+
+        body.dark-mode .testimonials {
+            background-color: #333;
+        }
+
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+            position: relative;
+            padding: 0 40px;
+        }
+
+        .testimonial-quote:before,
+        .testimonial-quote:after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .testimonial-quote:before {
+            top: -20px;
+            left: 0;
+        }
+
+        .testimonial-quote:after {
+            bottom: -40px;
+            right: 0;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-role {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        body.dark-mode .testimonial-role {
+            color: #ccc;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 60px 0;
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+
+        .newsletter-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 5px 5px 0;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background-color: #a5a594;
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100%;
+            background-color: var(--light-bg);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+
+        body.dark-mode .cart-modal {
+            background-color: var(--dark-bg);
+        }
+
+        .cart-modal.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        body.dark-mode .cart-header {
+            border-bottom-color: #444;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        body.dark-mode .cart-item {
+            border-bottom-color: #444;
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .cart-item-remove {
+            color: #999;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .cart-item-remove:hover {
+            color: #ff0000;
+        }
+
+        .cart-total {
+            padding: 20px;
+            text-align: right;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .cart-checkout {
+            display: block;
+            width: calc(100% - 40px);
+            margin: 0 20px 20px;
+            padding: 12px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cart-checkout:hover {
+            background-color: #75665a;
+        }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Empty Cart */
+        .empty-cart {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .categories-grid,
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .categories-grid,
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+
+            .cart-modal {
+                width: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .categories-grid,
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+
+            .newsletter-btn {
+                border-radius: 5px;
+                padding: 12px;
+            }
+
+            .cart-modal {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .floating-png {
+                max-width: 60px;
+                opacity: 0.7;
+            }
+
+            .floating-lotion {
+                display: none;
+            }
+
+            .hero {
+                height: 60vh;
+            }
+
+            .section-title {
+                margin-bottom: 40px;
+            }
+
+            .section-title:after {
+                bottom: -10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="pics/Wild Jasmine Website logo.png" alt="Wild Jasmine Logo">
+                    Wild Jasmine
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="header-right">
+                    <div class="settings">
+                        <!-- Language Toggle -->
+                        <div class="language-toggle">
+                            <button class="language-btn">
+                                <span>EN</span> ▼
+                            </button>
+                            <div class="language-dropdown">
+                                <a href="#" data-lang="en">English</a>
+                                <a href="#" data-lang="zu">isiZulu</a>
+                                <a href="#" data-lang="xh">isiXhosa</a>
+                                <a href="#" data-lang="af">Afrikaans</a>
+                            </div>
+                        </div>
+
+                        <!-- Dark Mode Toggle -->
+                        <div class="toggle-container">
+                            <span class="toggle-label">Dark</span>
+                            <label class="toggle">
+                                <input type="checkbox" id="darkModeToggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Cart Icon -->
+                    <a href="cart.html" class="cart-link" aria-label="View Cart" tabindex="0" style="outline: none;">
+                        <div class="cart-icon" style="pointer-events: auto; cursor: pointer;">
+                            <i>🛒</i>
+                            <span class="cart-count">0</span>
+                        </div>
+                    </a>
+
+                    <!-- Mobile Menu -->
+                    <div class="mobile-menu">
+                        <i>☰</i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="pics/Relax Soak Breathe Unwind (1000 x 400 px).png" alt="Hero Background" class="hero-bg-img" loading="eager">
+        <div class="hero-pattern"></div>
+        <!-- Floating Product Images -->
+        <img src="pics/Wild Jasmine Website bath.png" alt="Wild Jasmine Body Lotion" class="floating-png floating-lotion" loading="lazy">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Natural Beauty Products Handcrafted with Love</h1>
+                <p>Discover our collection of premium skincare and home fragrance products made with organic ingredients, sustainable practices, and pure passion.</p>
+                <a href="#" class="hero-btn">Shop Collection</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="categories-pattern"></div>
+        <div class="container">
+            <h2 class="section-title">Browse by Category</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="pics/cats1.png" alt="Skincare" class="category-img">
+                    <div class="category-content">
+                        <h3>Skincare</h3>
+                        <p>Natural skincare products for all skin types</p>
+                        <a href="#" class="btn-outline">Explore</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="pics/cats2.png" alt="Bath & Body" class="category-img">
+                    <div class="category-content">
+                        <h3>Bath & Body</h3>
+                        <p>Luxury bath products for self-care rituals</p>
+                        <a href="#" class="btn-outline">Explore</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="pics/cats3.png" alt="Candles" class="category-img">
+                    <div class="category-content">
+                        <h3>Candles</h3>
+                        <p>Hand-poured candles with soothing scents</p>
+                        <a href="#" class="btn-outline">Explore</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="pics/cats4.png" alt="Gift Sets" class="category-img">
+                    <div class="category-content">
+                        <h3>Gift Sets</h3>
+                        <p>Curated gift collections for loved ones</p>
+                        <a href="#" class="btn-outline">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-grid">
+                <div class="product-card" data-product-id="rose-clay-mask">
+                    <img src="/api/placeholder/300/220" alt="Rose Clay Facial Mask" class="product-img">
+                    <div class="product-content">
+                        <span class="product-badge">New</span>
+                        <h3 class="product-title">Rose Clay Facial Mask</h3>
+                        <div class="product-price">
+                            <span class="price">$24.99</span>
+                            <button class="add-to-cart">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-product-id="lavender-soap-bar">
+                    <img src="/api/placeholder/300/220" alt="Lavender Soap" class="product-img">
+                    <div class="product-content">
+                        <span class="product-badge">Best Seller</span>
+                        <h3 class="product-title">Lavender Soap Bar</h3>
+                        <div class="product-price">
+                            <span class="price">$12.99</span>
+                            <button class="add-to-cart">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-product-id="eucalyptus-soy-candle">
+                    <img src="/api/placeholder/300/220" alt="Eucalyptus Candle" class="product-img">
+                    <div class="product-content">
+                        <span class="product-badge">Organic</span>
+                        <h3 class="product-title">Eucalyptus Soy Candle</h3>
+                        <div class="product-price">
+                            <span class="price">$29.99</span>
+                            <button class="add-to-cart">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-product-id="vitamin-c-serum">
+                    <img src="/api/placeholder/300/220" alt="Facial Serum" class="product-img">
+                    <div class="product-content">
+                        <span class="product-badge">Vegan</span>
+                        <h3 class="product-title">Vitamin C Facial Serum</h3>
+                        <div class="product-price">
+                            <span class="price">$34.99</span>
+                            <button class="add-to-cart">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-pattern"></div>
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>Wild Jasmine was born from a passion for natural beauty and a commitment to sustainability. Our journey began in a small kitchen with simple ingredients and a big dream.</p>
+                    <p>Today, we handcraft all our products in small batches using ethically sourced ingredients. Every product is formulated to nourish your skin and soul while respecting our planet.</p>
+                    <p>We believe in transparency, quality, and the transformative power of nature. Our mission is to bring the ancient wisdom of botanical skincare into modern, eco-conscious homes.</p>
+                    <a href="#" class="btn-outline">Learn More</a>
+                </div>
+                <div class="about-image">
+                    <img src="/api/placeholder/600/400" alt="Wild Jasmine Workshop">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonial-container">
+                <p class="testimonial-quote">"I've tried countless skincare products, but Wild Jasmine's Rose Clay Mask transformed my skin. It's gentle yet effective, and I love knowing exactly what ingredients I'm putting on my face. Truly a game-changer!"</p>
+                <p class="testimonial-author">Sarah Johnson</p>
+                <p class="testimonial-role">Loyal Customer</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Join Our Community</h2>
+            <p>Subscribe to our newsletter for exclusive offers, new product announcements, and natural beauty tips straight to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-widget">
+                    <h4>Wild Jasmine</h4>
+                    <p>Handcrafted natural beauty products made with love and respect for nature.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i>📱</i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i>📸</i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i>🐦</i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i>📌</i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-widget">
+                    <h4>Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Skincare</a></li>
+                        <li><a href="#">Bath & Body</a></li>
+                        <li><a href="#">Candles</a></li>
+                        <li><a href="#">Gift Sets</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>About</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Ingredients</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Customer Care</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Wild Jasmine. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/cart.js"></script>
+
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Check for saved preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+
+        darkModeToggle.addEventListener('change', () => {
+            if (darkModeToggle.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('darkMode', null);
+            }
+        });
+
+        // Language Toggle
+        const languageBtn = document.querySelector('.language-btn');
+        const languageDropdown = document.querySelector('.language-dropdown');
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.language-toggle')) {
+                languageDropdown.style.opacity = '0';
+                languageDropdown.style.visibility = 'hidden';
+                languageDropdown.style.transform = 'translateY(10px)';
+            }
+        });
+
+        // Change language
+        document.querySelectorAll('.language-dropdown a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = link.getAttribute('data-lang');
+                // Here you would typically change the language
+                // For this example, we'll just update the button text
+                languageBtn.innerHTML = `<span>${lang.toUpperCase()}</span> ▼`;
+                // Close the dropdown
+                languageDropdown.style.opacity = '0';
+                languageDropdown.style.visibility = 'hidden';
+                languageDropdown.style.transform = 'translateY(10px)';
+            });
+        });
+
+        // Animate elements when they come into view
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.section-title, .category-card, .footer-widget');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>

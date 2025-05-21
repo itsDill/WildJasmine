@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Wild Jasmine</title>
+    <style>
+        /* Reuse your existing styles from the home page */
+        :root {
+            --primary: #8a7968;
+            --secondary: #a5a58d;
+            --accent: #b7b7a4;
+            --light-bg: #f8f7f2;
+            --light-text: #3a3a3a;
+            --dark-bg: #3a3a3a;
+            --dark-text: #f8f7f2;
+            --warm-tan: #d4c8be;
+            --soft-green: #c9d4c1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            color: var(--light-text);
+        }
+
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header - Same as home page */
+        header {
+            background-color: var(--warm-tan);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode header {
+            background-color: #4a4a4a;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--light-text);
+            display: flex;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover img {
+            transform: rotate(-15deg);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            letter-spacing: 0.5px;
+            padding: 5px 0;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .settings {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            position: relative;
+        }
+
+        .language-btn {
+            background: none;
+            border: none;
+            color: var(--light-text);
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .language-btn:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 10px 0;
+            min-width: 120px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        body.dark-mode .language-dropdown {
+            background-color: #444;
+        }
+
+        .language-toggle:hover .language-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-dropdown a {
+            display: block;
+            padding: 8px 15px;
+            color: var(--light-text);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .language-dropdown a:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        body.dark-mode .language-dropdown a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-label {
+            color: var(--light-text);
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+
+        .toggle {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .cart-icon {
+            margin-left: 10px;
+            font-size: 1.2rem;
+            color: var(--light-text);
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .cart-icon:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu {
+            display: none;
+            color: var(--light-text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+
+        /* Shop Hero */
+        .shop-hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .shop-hero h1 {
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .shop-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Shop Content */
+        .shop-content {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+            padding: 30px 0 80px;
+        }
+
+        /* Filters Sidebar */
+        .filters {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        body.dark-mode .filters {
+            background-color: #444;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .filter-section {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        body.dark-mode .filter-section {
+            border-bottom-color: #555;
+        }
+
+        .filter-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .filter-section h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .filter-options {
+            list-style: none;
+        }
+
+        .filter-options li {
+            margin-bottom: 10px;
+        }
+
+        .filter-options label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .filter-options input[type="checkbox"] {
+            margin-right: 10px;
+            accent-color: var(--primary);
+        }
+
+        .price-range {
+            width: 100%;
+            margin: 15px 0;
+            accent-color: var(--primary);
+        }
+
+        .price-values {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            width: 100%;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-btn:hover {
+            background-color: #75665a;
+        }
+
+        /* Products Grid */
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .products-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+        }
+
+        .sort-by {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sort-by select {
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: white;
+        }
+
+        body.dark-mode .sort-by select {
+            background-color: #444;
+            border-color: #555;
+            color: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        body.dark-mode .product-card {
+            background-color: #333;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-img-container {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--soft-green);
+            color: var(--light-text);
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            z-index: 1;
+        }
+
+        .product-content {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .product-category {
+            color: #777;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        body.dark-mode .product-category {
+            color: #bbb;
+        }
+
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.9rem;
+            margin-right: 5px;
+        }
+
+        .add-to-cart {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #75665a;
+            transform: scale(1.1);
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            gap: 10px;
+        }
+
+        .page-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            background-color: white;
+            color: var(--light-text);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        body.dark-mode .page-link {
+            background-color: #444;
+        }
+
+        .page-link:hover, .page-link.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Footer - Same as home page */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+            padding: 60px 0 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .shop-content {
+                grid-template-columns: 1fr;
+            }
+
+            .filters {
+                position: static;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .products-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .shop-hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .shop-hero {
+                height: 250px;
+            }
+
+            .shop-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .shop-hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header - Same as home page -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="/api/placeholder/40/40" alt="Wild Jasmine Logo">
+                    Wild Jasmine
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html" class="active">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="header-right">
+                    <div class="settings">
+                        <!-- Language Toggle -->
+                        <div class="language-toggle">
+                            <button class="language-btn">
+                                <span>EN</span> ▼
+                            </button>
+                            <div class="language-dropdown">
+                                <a href="#" data-lang="en">English</a>
+                                <a href="#" data-lang="zu">isiZulu</a>
+                                <a href="#" data-lang="xh">isiXhosa</a>
+                                <a href="#" data-lang="af">Afrikaans</a>
+                            </div>
+                        </div>
+
+                        <!-- Dark Mode Toggle -->
+                        <div class="toggle-container">
+                            <span class="toggle-label">Dark</span>
+                            <label class="toggle">
+                                <input type="checkbox" id="darkModeToggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Cart Icon -->
+                    <div class="cart-icon">
+                        <i>🛒</i>
+                        <span class="cart-count">3</span>
+                    </div>
+
+                    <!-- Mobile Menu -->
+                    <div class="mobile-menu">
+                        <i>☰</i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Shop Hero -->
+    <section class="shop-hero">
+        <div class="container">
+            <div>
+                <h1>Our Natural Products</h1>
+                <p>Discover handcrafted beauty products made with organic ingredients and sustainable practices</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Content -->
+    <div class="container">
+        <div class="shop-content">
+            <!-- Filters Sidebar -->
+            <aside class="filters">
+                <div class="filter-section">
+                    <h3>Categories</h3>
+                    <ul class="filter-options">
+                        <li>
+                            <label>
+                                <input type="checkbox" checked> All Products
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox"> Skincare
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox"> Bath & Body
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox"> Candles
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox"> Gift Sets
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Price Range</h3>
+                    <input type="range" class="price-range" min="0" max="100" value="50">
+                    <div class="price-values">
+                        <span>$0</span>
+                        <span>$100+</span>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Features</h3>
+                    <ul class="filter-options">
+                        <li>
+                            <label>
+                                <input type="checkbox"> Organic
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox"> Vegan
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox"> Cruelty-Free
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox"> Best Sellers
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox"> New Arrivals
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="filter-btn">Apply Filters</button>
+            </aside>
+
+            <!-- Products Section -->
+            <main class="products">
+                <div class="products-header">
+                    <h2>All Products</h2>
+                    <div class="sort-by">
+                        <span>Sort by:</span>
+                        <select>
+                            <option>Featured</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                            <option>Newest</option>
+                            <option>Best Selling</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="/api/placeholder/300/300" alt="Rose Clay Facial Mask" class="product-img">
+                            <span class="product-badge">New</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Rose Clay Facial Mask</h3>
+                            <span class="product-category">Skincare</span>
+                            <p>Detoxifying mask with rose clay and lavender</p>
+                            <div class="product-price">
+                                <div>
+                                    <span class="price">$24.99</span>
+                                </div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="/api/placeholder/300/300" alt="Lavender Soap Bar" class="product-img">
+                            <span class="product-badge">Best Seller</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Lavender Soap Bar</h3>
+                            <span class="product-category">Bath & Body</span>
+                            <p>Handmade soap with lavender essential oil</p>
+                            <div class="product-price">
+                                <div>
+                                    <span class="price">$12.99</span>
+                                </div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="/api/placeholder/300/300" alt="Eucalyptus Candle" class="product-img">
+                            <span class="product-badge">Organic</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Eucalyptus Soy Candle</h3>
+                            <span class="product-category">Candles</span>
+                            <p>Hand-poured soy wax candle with eucalyptus</p>
+                            <div class="product-price">
+                                <div>
+                                    <span class="price">$29.99</span>
+                                </div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="/api/placeholder/300/300" alt="Vitamin C Serum" class="product-img">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Vitamin C Facial Serum</h3>
+                            <span class="product-category">Skincare</span>
+                            <p>Brightening serum with vitamin C and hyaluronic acid</p>
+                            <div class="product-price">
+                                <div>
+                                    <span class="old-price">$39.99</span>
+                                    <span class="price">$34.99</span>
+                                </div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="/api/placeholder/300/300" alt="Body Butter" class="product-img">
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Shea Body Butter</h3>
+                            <span class="product-category">Bath & Body</span>
+                            <p>Ultra-hydrating body butter with shea and cocoa</p>
+                            <div class="product-price">
+                                <div>
+                                    <span class="price">$22.99</span>
+                                </div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="/api/placeholder/300/300" alt="Gift Set" class="product-img">
+                            <span class="product-badge">Gift</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Self-Care Gift Set</h3>
+                            <span class="product-category">Gift Sets</span>
+                            <p>Curated collection for the perfect pampering</p>
+                            <div class="product-price">
+                                <div>
+                                    <span class="price">$49.99</span>
+                                </div>
+                                <button class="add-to-cart">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <a href="#" class="page-link">&laquo;</a>
+                    <a href="#" class="page-link active">1</a>
+                    <a href="#" class="page-link">2</a>
+                    <a href="#" class="page-link">3</a>
+                    <a href="#" class="page-link">&raquo;</a>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer - Same as home page -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-widget">
+                    <h4>Wild Jasmine</h4>
+                    <p>Handcrafted natural beauty products made with love and respect for nature.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i>📱</i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i>📸</i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i>🐦</i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i>📌</i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-widget">
+                    <h4>Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Skincare</a></li>
+                        <li><a href="#">Bath & Body</a></li>
+                        <li><a href="#">Candles</a></li>
+                        <li><a href="#">Gift Sets</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>About</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Ingredients</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Customer Care</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Wild Jasmine. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/cart.js"></script>
+
+    <script>
+        // Dark Mode Toggle (same as home page)
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+
+        darkModeToggle.addEventListener('change', () => {
+            if (darkModeToggle.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('darkMode', null);
+            }
+        });
+
+        // Language Toggle (same as home page)
+        const languageBtn = document.querySelector('.language-btn');
+        const languageDropdown = document.querySelector('.language-dropdown');
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.language-toggle')) {
+                languageDropdown.style.opacity = '0';
+                languageDropdown.style.visibility = 'hidden';
+                languageDropdown.style.transform = 'translateY(10px)';
+            }
+        });
+
+        document.querySelectorAll('.language-dropdown a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = link.getAttribute('data-lang');
+                languageBtn.innerHTML = `<span>${lang.toUpperCase()}</span> ▼`;
+                languageDropdown.style.opacity = '0';
+                languageDropdown.style.visibility = 'hidden';
+                languageDropdown.style.transform = 'translateY(10px)';
+            });
+        });
+
+        // Filter functionality would go here
+        // Product sorting would go here
+        // Add to cart functionality would go here
+    </script>
+</body>
+</html>
