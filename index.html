@@ -887,56 +887,39 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">
-                    <img src="pics/Wild Jasmine Website logo.png" alt="Wild Jasmine Logo">
-                    Wild Jasmine
-                </a>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <div class="header-right">
-                    <div class="settings">
-                        <!-- Language Toggle -->
-                        <div class="language-toggle">
-                            <button class="language-btn">
-                                <span>EN</span> ▼
-                            </button>
-                            <div class="language-dropdown">
-                                <a href="#" data-lang="en">English</a>
-                                <a href="#" data-lang="zu">isiZulu</a>
-                                <a href="#" data-lang="xh">isiXhosa</a>
-                                <a href="#" data-lang="af">Afrikaans</a>
-                            </div>
-                        </div>
-
-                        <!-- Dark Mode Toggle -->
-                        <div class="toggle-container">
-                            <span class="toggle-label">Dark</span>
-                            <label class="toggle">
-                                <input type="checkbox" id="darkModeToggle">
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Cart Icon -->
-                    <a href="cart.html" class="cart-link" aria-label="View Cart" tabindex="0" style="outline: none;">
-                        <div class="cart-icon" style="pointer-events: auto; cursor: pointer;">
-                            <i>🛒</i>
-                            <span class="cart-count">0</span>
-                        </div>
-                    </a>
-
-                    <!-- Mobile Menu -->
-                    <div class="mobile-menu">
-                        <i>☰</i>
-                    </div>
-                </div>
-            </nav>
+    <a href="#" class="logo">
+        <img src="pics/Wild Jasmine Website logo.png" alt="Wild Jasmine Logo">
+        Wild Jasmine
+    </a>
+    <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Contact</a></li>
+</ul>
+    
+    </ul>
+    <div class="header-right">
+        <div class="toggle-container">
+            <span class="toggle-label">Dark</span>
+            <label class="toggle">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <a href="cart.html" class="cart-link" aria-label="View Cart" tabindex="0" style="outline: none;">
+            <div class="cart-icon" style="pointer-events: auto; cursor: pointer;">
+                <i>🛒</i>
+                <span class="cart-count">0</span>
+            </div>
+        </a>
+        <div class="mobile-menu">
+            <i>☰</i>
+        </div>
+    </div>
+</nav>
+            
         </div>
     </header>
 
@@ -962,7 +945,7 @@
             <h2 class="section-title">Browse by Category</h2>
             <div class="categories-grid">
                 <div class="category-card">
-                    <img src="pics/cats1.png" alt="Skincare" class="category-img">
+                    <img src="Untitled (1200 x 800 mm)/cats1.png" alt="Skincare" class="category-img">
                     <div class="category-content">
                         <h3>Skincare</h3>
                         <p>Natural skincare products for all skin types</p>
@@ -970,7 +953,7 @@
                     </div>
                 </div>
                 <div class="category-card">
-                    <img src="pics/cats2.png" alt="Bath & Body" class="category-img">
+                    <img src="Untitled (1200 x 800 mm)/cats2.png" alt="Bath & Body" class="category-img">
                     <div class="category-content">
                         <h3>Bath & Body</h3>
                         <p>Luxury bath products for self-care rituals</p>
@@ -978,7 +961,7 @@
                     </div>
                 </div>
                 <div class="category-card">
-                    <img src="pics/cats3.png" alt="Candles" class="category-img">
+                    <img src="Untitled (1200 x 800 mm)/cats3.png" alt="Candles" class="category-img">
                     <div class="category-content">
                         <h3>Candles</h3>
                         <p>Hand-poured candles with soothing scents</p>
@@ -986,7 +969,7 @@
                     </div>
                 </div>
                 <div class="category-card">
-                    <img src="pics/cats4.png" alt="Gift Sets" class="category-img">
+                    <img src="Untitled (1200 x 800 mm)/cats4.png" alt="Gift Sets" class="category-img">
                     <div class="category-content">
                         <h3>Gift Sets</h3>
                         <p>Curated gift collections for loved ones</p>
@@ -1173,34 +1156,6 @@
                 body.classList.remove('dark-mode');
                 localStorage.setItem('darkMode', null);
             }
-        });
-
-        // Language Toggle
-        const languageBtn = document.querySelector('.language-btn');
-        const languageDropdown = document.querySelector('.language-dropdown');
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.language-toggle')) {
-                languageDropdown.style.opacity = '0';
-                languageDropdown.style.visibility = 'hidden';
-                languageDropdown.style.transform = 'translateY(10px)';
-            }
-        });
-
-        // Change language
-        document.querySelectorAll('.language-dropdown a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const lang = link.getAttribute('data-lang');
-                // Here you would typically change the language
-                // For this example, we'll just update the button text
-                languageBtn.innerHTML = `<span>${lang.toUpperCase()}</span> ▼`;
-                // Close the dropdown
-                languageDropdown.style.opacity = '0';
-                languageDropdown.style.visibility = 'hidden';
-                languageDropdown.style.transform = 'translateY(10px)';
-            });
         });
 
         // Animate elements when they come into view

@@ -4,643 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop - Wild Jasmine</title>
-    <style>
-        /* Reuse your existing styles from the home page */
-        :root {
-            --primary: #8a7968;
-            --secondary: #a5a58d;
-            --accent: #b7b7a4;
-            --light-bg: #f8f7f2;
-            --light-text: #3a3a3a;
-            --dark-bg: #3a3a3a;
-            --dark-text: #f8f7f2;
-            --warm-tan: #d4c8be;
-            --soft-green: #c9d4c1;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: background-color 0.3s, color 0.3s, transform 0.3s;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            background-color: var(--light-bg);
-            color: var(--light-text);
-        }
-
-        body.dark-mode {
-            background-color: var(--dark-bg);
-            color: var(--dark-text);
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header - Same as home page */
-        header {
-            background-color: var(--warm-tan);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        body.dark-mode header {
-            background-color: #4a4a4a;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--light-text);
-            display: flex;
-            align-items: center;
-            font-family: 'Playfair Display', serif;
-            text-decoration: none;
-        }
-
-        .logo img {
-            height: 40px;
-            margin-right: 10px;
-            transition: transform 0.3s;
-        }
-
-        .logo:hover img {
-            transform: rotate(-15deg);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 25px;
-            position: relative;
-        }
-
-        .nav-links a {
-            color: var(--light-text);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            position: relative;
-            letter-spacing: 0.5px;
-            padding: 5px 0;
-        }
-
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--primary);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .settings {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        /* Language Toggle */
-        .language-toggle {
-            position: relative;
-        }
-
-        .language-btn {
-            background: none;
-            border: none;
-            color: var(--light-text);
-            font-weight: 500;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-        .language-btn:hover {
-            background-color: rgba(0,0,0,0.05);
-        }
-
-        .language-dropdown {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            padding: 10px 0;
-            min-width: 120px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s;
-            z-index: 10;
-        }
-
-        body.dark-mode .language-dropdown {
-            background-color: #444;
-        }
-
-        .language-toggle:hover .language-dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .language-dropdown a {
-            display: block;
-            padding: 8px 15px;
-            color: var(--light-text);
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-
-        .language-dropdown a:hover {
-            background-color: rgba(0,0,0,0.05);
-        }
-
-        body.dark-mode .language-dropdown a:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
-
-        .toggle-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .toggle-label {
-            color: var(--light-text);
-            margin-right: 8px;
-            font-size: 0.9rem;
-        }
-
-        .toggle {
-            position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 24px;
-        }
-
-        .toggle input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 24px;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 16px;
-            width: 16px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-
-        input:checked + .slider {
-            background-color: var(--primary);
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-
-        .cart-icon {
-            margin-left: 10px;
-            font-size: 1.2rem;
-            color: var(--light-text);
-            position: relative;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            transition: background-color 0.3s;
-        }
-
-        .cart-icon:hover {
-            background-color: rgba(0,0,0,0.05);
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background-color: var(--primary);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: bold;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .mobile-menu {
-            display: none;
-            color: var(--light-text);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-
-        /* Shop Hero */
-        .shop-hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/api/placeholder/1200/400');
-            background-size: cover;
-            background-position: center;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-bottom: 50px;
-        }
-
-        .shop-hero h1 {
-            font-size: 3rem;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .shop-hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Shop Content */
-        .shop-content {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 30px;
-            padding: 30px 0 80px;
-        }
-
-        /* Filters Sidebar */
-        .filters {
-            background-color: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            height: fit-content;
-            position: sticky;
-            top: 100px;
-        }
-
-        body.dark-mode .filters {
-            background-color: #444;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .filter-section {
-            margin-bottom: 25px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
-        }
-
-        body.dark-mode .filter-section {
-            border-bottom-color: #555;
-        }
-
-        .filter-section:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .filter-section h3 {
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .filter-options {
-            list-style: none;
-        }
-
-        .filter-options li {
-            margin-bottom: 10px;
-        }
-
-        .filter-options label {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .filter-options input[type="checkbox"] {
-            margin-right: 10px;
-            accent-color: var(--primary);
-        }
-
-        .price-range {
-            width: 100%;
-            margin: 15px 0;
-            accent-color: var(--primary);
-        }
-
-        .price-values {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-        }
-
-        .filter-btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            width: 100%;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .filter-btn:hover {
-            background-color: #75665a;
-        }
-
-        /* Products Grid */
-        .products-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .products-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-        }
-
-        .sort-by {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .sort-by select {
-            padding: 8px 15px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            background-color: white;
-        }
-
-        body.dark-mode .sort-by select {
-            background-color: #444;
-            border-color: #555;
-            color: white;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .product-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        body.dark-mode .product-card {
-            background-color: #333;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .product-img-container {
-            position: relative;
-            overflow: hidden;
-            height: 250px;
-        }
-
-        .product-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .product-card:hover .product-img {
-            transform: scale(1.05);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background-color: var(--soft-green);
-            color: var(--light-text);
-            padding: 3px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            z-index: 1;
-        }
-
-        .product-content {
-            padding: 20px;
-        }
-
-        .product-title {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .product-category {
-            color: #777;
-            font-size: 0.8rem;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        body.dark-mode .product-category {
-            color: #bbb;
-        }
-
-        .product-price {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 15px;
-        }
-
-        .price {
-            font-weight: bold;
-            color: var(--primary);
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 0.9rem;
-            margin-right: 5px;
-        }
-
-        .add-to-cart {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .add-to-cart:hover {
-            background-color: #75665a;
-            transform: scale(1.1);
-        }
-
-        /* Pagination */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 50px;
-            gap: 10px;
-        }
-
-        .page-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 5px;
-            background-color: white;
-            color: var(--light-text);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        body.dark-mode .page-link {
-            background-color: #444;
-        }
-
-        .page-link:hover, .page-link.active {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        /* Footer - Same as home page */
-        footer {
-            background-color: var(--dark-bg);
-            color: var(--dark-text);
-            padding: 60px 0 20px;
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .shop-content {
-                grid-template-columns: 1fr;
-            }
-
-            .filters {
-                position: static;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .products-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-
-            .shop-hero h1 {
-                font-size: 2.2rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .shop-hero {
-                height: 250px;
-            }
-
-            .shop-hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .shop-hero p {
-                font-size: 1rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/store.css">
 </head>
 <body>
     <!-- Header - Same as home page -->
@@ -658,41 +23,25 @@
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
-                <div class="header-right">
-                    <div class="settings">
-                        <!-- Language Toggle -->
-                        <div class="language-toggle">
-                            <button class="language-btn">
-                                <span>EN</span> ▼
-                            </button>
-                            <div class="language-dropdown">
-                                <a href="#" data-lang="en">English</a>
-                                <a href="#" data-lang="zu">isiZulu</a>
-                                <a href="#" data-lang="xh">isiXhosa</a>
-                                <a href="#" data-lang="af">Afrikaans</a>
-                            </div>
-                        </div>
 
-                        <!-- Dark Mode Toggle -->
-                        <div class="toggle-container">
-                            <span class="toggle-label">Dark</span>
-                            <label class="toggle">
-                                <input type="checkbox" id="darkModeToggle">
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-                    </div>
+                <!-- Dark Mode Toggle -->
+                <div class="toggle-container">
+                    <span class="toggle-label">Dark</span>
+                    <label class="toggle">
+                        <input type="checkbox" id="darkModeToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
 
-                    <!-- Cart Icon -->
-                    <div class="cart-icon">
-                        <i>🛒</i>
-                        <span class="cart-count">3</span>
-                    </div>
+                <!-- Cart Icon -->
+                <div class="cart-icon">
+                    <i>🛒</i>
+                    <span class="cart-count">0</span>
+                </div>
 
-                    <!-- Mobile Menu -->
-                    <div class="mobile-menu">
-                        <i>☰</i>
-                    </div>
+                <!-- Mobile Menu -->
+                <div class="mobile-menu">
+                    <i>☰</i>
                 </div>
             </nav>
         </div>
@@ -718,27 +67,32 @@
                     <ul class="filter-options">
                         <li>
                             <label>
-                                <input type="checkbox" checked> All Products
+                                <input type="checkbox" checked name="category" value="all"> All Products
                             </label>
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox"> Skincare
+                                <input type="checkbox" name="category" value="skincare"> Skincare
                             </label>
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox"> Bath & Body
+                                <input type="checkbox" name="category" value="bath"> Bath & Body
                             </label>
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox"> Candles
+                                <input type="checkbox" name="category" value="candles"> Candles
                             </label>
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox"> Gift Sets
+                                <input type="checkbox" name="category" value="gift"> Gift Sets
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="category" value="oils"> Essential Oils
                             </label>
                         </li>
                     </ul>
@@ -746,10 +100,10 @@
 
                 <div class="filter-section">
                     <h3>Price Range</h3>
-                    <input type="range" class="price-range" min="0" max="100" value="50">
+                    <input type="range" class="price-range" id="priceRange" min="0" max="1000" value="1000">
                     <div class="price-values">
-                        <span>$0</span>
-                        <span>$100+</span>
+                        <span>R0</span>
+                        <span id="maxPriceValue">R1000+</span>
                     </div>
                 </div>
 
@@ -758,33 +112,33 @@
                     <ul class="filter-options">
                         <li>
                             <label>
-                                <input type="checkbox"> Organic
+                                <input type="checkbox" name="feature" value="organic"> Organic
                             </label>
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox"> Vegan
+                                <input type="checkbox" name="feature" value="vegan"> Vegan
                             </label>
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox"> Cruelty-Free
+                                <input type="checkbox" name="feature" value="cruelty-free"> Cruelty-Free
                             </label>
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox"> Best Sellers
+                                <input type="checkbox" name="feature" value="bestseller"> Best Sellers
                             </label>
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox"> New Arrivals
+                                <input type="checkbox" name="feature" value="new"> New Arrivals
                             </label>
                         </li>
                     </ul>
                 </div>
 
-                <button class="filter-btn">Apply Filters</button>
+                <button class="filter-btn" id="applyFilters">Apply Filters</button>
             </aside>
 
             <!-- Products Section -->
@@ -793,126 +147,126 @@
                     <h2>All Products</h2>
                     <div class="sort-by">
                         <span>Sort by:</span>
-                        <select>
-                            <option>Featured</option>
-                            <option>Price: Low to High</option>
-                            <option>Price: High to Low</option>
-                            <option>Newest</option>
-                            <option>Best Selling</option>
+                        <select id="sortProducts">
+                            <option value="featured">Featured</option>
+                            <option value="lowToHigh">Price: Low to High</option>
+                            <option value="highToLow">Price: High to Low</option>
+                            <option value="newest">Newest</option>
+                            <option value="bestselling">Best Selling</option>
                         </select>
                     </div>
                 </div>
 
-                <div class="products-grid">
+                <div class="products-grid" id="productsGrid">
                     <!-- Product 1 -->
-                    <div class="product-card">
+                    <div class="product-card" data-category="bath" data-price="429.99" data-features="new,organic">
                         <div class="product-img-container">
-                            <img src="/api/placeholder/300/300" alt="Rose Clay Facial Mask" class="product-img">
+                            <img src="pics/store/bath 3.jpg" alt="Bath bombs" class="product-img">
                             <span class="product-badge">New</span>
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">Rose Clay Facial Mask</h3>
-                            <span class="product-category">Skincare</span>
-                            <p>Detoxifying mask with rose clay and lavender</p>
+                            <h3 class="product-title">Lavender Dream Bath Bombs</h3>
+                            <span class="product-category">Bath</span>
+                            <p>Set of 4 relaxing bath bombs infused with pure lavender essential oil, perfect for unwinding after a long day. Made with organic ingredients that nourish your skin.</p>
                             <div class="product-price">
                                 <div>
-                                    <span class="price">$24.99</span>
+                                    <span class="price">R429.99</span>
                                 </div>
-                                <button class="add-to-cart">+</button>
+                                <button class="add-to-cart" data-id="1">+</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Product 2 -->
-                    <div class="product-card">
+                    <div class="product-card" data-category="candles" data-price="249.99" data-features="bestseller,vegan">
                         <div class="product-img-container">
-                            <img src="/api/placeholder/300/300" alt="Lavender Soap Bar" class="product-img">
+                            <img src="pics/store/candle4.jpg" alt="Candle" class="product-img">
                             <span class="product-badge">Best Seller</span>
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">Lavender Soap Bar</h3>
-                            <span class="product-category">Bath & Body</span>
-                            <p>Handmade soap with lavender essential oil</p>
+                            <h3 class="product-title">Havana Nights Soy Candle</h3>
+                            <span class="product-category">Candles</span>
+                            <p>Handmade soy wax candle with notes of warm vanilla, tobacco, and citrus. Burns for up to 40 hours and fills your home with a cozy, inviting aroma.</p>
                             <div class="product-price">
                                 <div>
-                                    <span class="price">$12.99</span>
+                                    <span class="price">R249.99</span>
                                 </div>
-                                <button class="add-to-cart">+</button>
+                                <button class="add-to-cart" data-id="2">+</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Product 3 -->
-                    <div class="product-card">
+                    <div class="product-card" data-category="oils" data-price="549.99" data-features="organic,vegan,cruelty-free">
                         <div class="product-img-container">
-                            <img src="/api/placeholder/300/300" alt="Eucalyptus Candle" class="product-img">
+                            <img src="pics/store/drops.jpg" alt="Essential oil" class="product-img">
                             <span class="product-badge">Organic</span>
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">Eucalyptus Soy Candle</h3>
-                            <span class="product-category">Candles</span>
-                            <p>Hand-poured soy wax candle with eucalyptus</p>
+                            <h3 class="product-title">Wellness Essential Oil Collection</h3>
+                            <span class="product-category">Oils</span>
+                            <p>Set of 3 therapeutic-grade essential oils including eucalyptus, tea tree, and peppermint. Sourced from sustainable farms and perfect for aromatherapy or diffuser use.</p>
                             <div class="product-price">
                                 <div>
-                                    <span class="price">$29.99</span>
+                                    <span class="price">R549.99</span>
                                 </div>
-                                <button class="add-to-cart">+</button>
+                                <button class="add-to-cart" data-id="3">+</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Product 4 -->
-                    <div class="product-card">
+                    <div class="product-card" data-category="candles" data-price="349.99" data-features="vegan,cruelty-free">
                         <div class="product-img-container">
-                            <img src="/api/placeholder/300/300" alt="Vitamin C Serum" class="product-img">
+                            <img src="pics/store/frag 3.jpg" alt="Wax melts" class="product-img">
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">Vitamin C Facial Serum</h3>
-                            <span class="product-category">Skincare</span>
-                            <p>Brightening serum with vitamin C and hyaluronic acid</p>
+                            <h3 class="product-title">Botanical Wax Melts Collection</h3>
+                            <span class="product-category">Candles</span>
+                            <p>Set of 12 handcrafted soy wax melts in four seasonal scents. Long-lasting fragrance without the flame, perfect for any wax warmer or diffuser.</p>
                             <div class="product-price">
                                 <div>
-                                    <span class="old-price">$39.99</span>
-                                    <span class="price">$34.99</span>
+                                    <span class="old-price">R399.99</span>
+                                    <span class="price">R349.99</span>
                                 </div>
-                                <button class="add-to-cart">+</button>
+                                <button class="add-to-cart" data-id="4">+</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Product 5 -->
-                    <div class="product-card">
+                    <div class="product-card" data-category="oils" data-price="399.99" data-features="organic,cruelty-free">
                         <div class="product-img-container">
-                            <img src="/api/placeholder/300/300" alt="Body Butter" class="product-img">
+                            <img src="pics/store/frag1.jpg" alt="oils" class="product-img">
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">Shea Body Butter</h3>
+                            <h3 class="product-title">Sleep & Relaxation Oil Blend</h3>
                             <span class="product-category">Bath & Body</span>
-                            <p>Ultra-hydrating body butter with shea and cocoa</p>
+                            <p>Ultra-concentrated blend of lavender, chamomile, and ylang-ylang essential oils. Add a few drops to your bath or diffuser to promote deep relaxation and better sleep.</p>
                             <div class="product-price">
                                 <div>
-                                    <span class="price">$22.99</span>
+                                    <span class="price">R399.99</span>
                                 </div>
-                                <button class="add-to-cart">+</button>
+                                <button class="add-to-cart" data-id="5">+</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Product 6 -->
-                    <div class="product-card">
+                    <div class="product-card" data-category="gift" data-price="899.99" data-features="gift,organic,vegan">
                         <div class="product-img-container">
-                            <img src="/api/placeholder/300/300" alt="Gift Set" class="product-img">
+                            <img src="pics/store/frag2 .jpg" alt="Gift Set" class="product-img">
                             <span class="product-badge">Gift</span>
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">Self-Care Gift Set</h3>
+                            <h3 class="product-title">Sacred Cedar Incense Collection</h3>
                             <span class="product-category">Gift Sets</span>
-                            <p>Curated collection for the perfect pampering</p>
+                            <p>Premium handcrafted incense sticks made from sustainably harvested cedar wood and natural resins. Set includes an elegant ceramic holder and 30 sticks in three signature scents.</p>
                             <div class="product-price">
                                 <div>
-                                    <span class="price">$49.99</span>
+                                    <span class="price">R899.99</span>
                                 </div>
-                                <button class="add-to-cart">+</button>
+                                <button class="add-to-cart" data-id="6">+</button>
                             </div>
                         </div>
                     </div>
@@ -989,8 +343,6 @@
         </div>
     </footer>
 
-    <script src="js/cart.js"></script>
-
     <script>
         // Dark Mode Toggle (same as home page)
         const darkModeToggle = document.getElementById('darkModeToggle');
@@ -1011,32 +363,154 @@
             }
         });
 
-        // Language Toggle (same as home page)
-        const languageBtn = document.querySelector('.language-btn');
-        const languageDropdown = document.querySelector('.language-dropdown');
-
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.language-toggle')) {
-                languageDropdown.style.opacity = '0';
-                languageDropdown.style.visibility = 'hidden';
-                languageDropdown.style.transform = 'translateY(10px)';
-            }
-        });
-
-        document.querySelectorAll('.language-dropdown a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const lang = link.getAttribute('data-lang');
-                languageBtn.innerHTML = `<span>${lang.toUpperCase()}</span> ▼`;
-                languageDropdown.style.opacity = '0';
-                languageDropdown.style.visibility = 'hidden';
-                languageDropdown.style.transform = 'translateY(10px)';
+        // Cart functionality
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartCount = document.querySelector('.cart-count');
+        
+        // Update cart count display
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = count;
+        }
+        
+        // Add to cart functionality
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const productCard = button.closest('.product-card');
+                const productId = button.getAttribute('data-id');
+                const productTitle = productCard.querySelector('.product-title').textContent;
+                const productPrice = parseFloat(productCard.querySelector('.price').textContent.replace('R', ''));
+                const productImg = productCard.querySelector('.product-img').getAttribute('src');
+                
+                // Check if product already in cart
+                const existingItemIndex = cart.findIndex(item => item.id === productId);
+                
+                if (existingItemIndex > -1) {
+                    cart[existingItemIndex].quantity += 1;
+                } else {
+                    cart.push({
+                        id: productId,
+                        title: productTitle,
+                        price: productPrice,
+                        img: productImg,
+                        quantity: 1
+                    });
+                }
+                
+                // Save cart to localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                
+                // Visual feedback
+                button.textContent = '✓';
+                setTimeout(() => {
+                    button.textContent = '+';
+                }, 1000);
             });
         });
+        
+        // Initialize cart count
+        updateCartCount();
 
-        // Filter functionality would go here
-        // Product sorting would go here
-        // Add to cart functionality would go here
+        // Price Range Filter
+        const priceRange = document.getElementById('priceRange');
+        const maxPriceValue = document.getElementById('maxPriceValue');
+        
+        priceRange.addEventListener('input', () => {
+            maxPriceValue.textContent = `R${priceRange.value}${priceRange.value == priceRange.max ? '+' : ''}`;
+        });
+
+        // Filter and Sort Products
+        const productsGrid = document.getElementById('productsGrid');
+        const productCards = document.querySelectorAll('.product-card');
+        const applyFiltersBtn = document.getElementById('applyFilters');
+        const sortSelect = document.getElementById('sortProducts');
+        
+        function filterProducts() {
+            const selectedCategories = getSelectedValues('category');
+            const selectedFeatures = getSelectedValues('feature');
+            const maxPrice = parseInt(priceRange.value);
+            
+            productCards.forEach(card => {
+                const price = parseFloat(card.getAttribute('data-price'));
+                const category = card.getAttribute('data-category');
+                const features = card.getAttribute('data-features').split(',');
+                
+                let categoryMatch = selectedCategories.includes('all') || selectedCategories.includes(category);
+                let featureMatch = selectedFeatures.length === 0 || selectedFeatures.some(f => features.includes(f));
+                let priceMatch = price <= maxPrice;
+                
+                if (categoryMatch && featureMatch && priceMatch) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        
+        function getSelectedValues(name) {
+            return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
+                .map(input => input.value);
+        }
+        
+        function sortProducts() {
+            const sortBy = sortSelect.value;
+            const products = Array.from(productCards);
+            
+            products.sort((a, b) => {
+                switch(sortBy) {
+                    case 'lowToHigh':
+                        return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
+                    case 'highToLow':
+                        return parseFloat(b.getAttribute('data-price')) - parseFloat(a.getAttribute('data-price'));
+                    case 'newest':
+                        return a.getAttribute('data-features').includes('new') ? -1 : 1;
+                    case 'bestselling':
+                        return a.getAttribute('data-features').includes('bestseller') ? -1 : 1;
+                    default:
+                        return 0;
+                }
+            });
+            
+            productsGrid.innerHTML = '';
+            products.forEach(product => {
+                if (product.style.display !== 'none') {
+                    productsGrid.appendChild(product);
+                }
+            });
+        }
+        
+        // Apply filters and sort when button clicked
+        applyFiltersBtn.addEventListener('click', () => {
+            filterProducts();
+            sortProducts();
+        });
+        
+        // Apply sorting when select changed
+        sortSelect.addEventListener('change', () => {
+            sortProducts();
+        });
+        
+        // Category exclusive selection logic
+        document.querySelectorAll('input[name="category"]').forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                if (e.target.value === 'all' && e.target.checked) {
+                    // Uncheck all other category checkboxes
+                    document.querySelectorAll('input[name="category"]').forEach(cb => {
+                        if (cb.value !== 'all') cb.checked = false;
+                    });
+                } else if (e.target.checked) {
+                    // Uncheck 'All Products' if any other category is selected
+                    document.querySelector('input[value="all"]').checked = false;
+                }
+                
+                // Ensure at least one category is selected
+                const anyChecked = Array.from(document.querySelectorAll('input[name="category"]')).some(cb => cb.checked);
+                if (!anyChecked) {
+                    document.querySelector('input[value="all"]').checked = true;
+                }
+            });
+        });
     </script>
 </body>
 </html>
