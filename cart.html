@@ -2,52 +2,131 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Wild Jasmine - Cart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cart - Wild Jasmine</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/cart.css">
+    <style>
+        .cart-main-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 2rem;
+        }
+        .cart-main-container h2 {
+            margin-top: 0;
+            color: #b77b57;
+            letter-spacing: 1px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #f0e6df;
+        }
+        th {
+            background: #f7e4d6;
+            color: #b77b57;
+            font-weight: 700;
+        }
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #eee;
+        }
+        .qty-controls {
+            display: flex;
+            align-items: center;
+        }
+        .qty-btn {
+            background: #e0b7a4;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            width: 28px;
+            height: 28px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin: 0 5px;
+            transition: background 0.2s;
+        }
+        .qty-btn:hover {
+            background: #b77b57;
+        }
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #b77b57;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: underline;
+        }
+        .cart-summary {
+            text-align: right;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .checkout-btn {
+            background: #b77b57;
+            color: #fff;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: background 0.2s;
+        }
+        .checkout-btn:hover {
+            background: #e0b7a4;
+        }
+        .empty-cart {
+            text-align: center;
+            color: #b77b57;
+            font-size: 1.2rem;
+            margin: 2rem 0;
+        }
+    </style>
 </head>
 <body>
-    <!-- Header (reuse from index.html) -->
+    <!-- Header -->
     <header>
         <div class="container">
             <nav>
                 <a href="index.html" class="logo">
-                    <img src="/api/placeholder/40/40" alt="Wild Jasmine Logo">
+                    <img src="pics/Wild Jasmine Website logo.png" alt="Wild Jasmine Logo">
                     Wild Jasmine
                 </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
                 <div class="header-right">
-                    <div class="settings">
-                        <div class="language-toggle">
-                            <button class="language-btn">
-                                <span>EN</span> ▼
-                            </button>
-                            <div class="language-dropdown">
-                                <a href="#" data-lang="en">English</a>
-                                <a href="#" data-lang="zu">isiZulu</a>
-                                <a href="#" data-lang="xh">isiXhosa</a>
-                                <a href="#" data-lang="af">Afrikaans</a>
-                            </div>
-                        </div>
-                        <div class="toggle-container">
-                            <span class="toggle-label">Dark</span>
-                            <label class="toggle">
-                                <input type="checkbox" id="darkModeToggle">
-                                <span class="slider"></span>
-                            </label>
-                        </div>
+                    <div class="toggle-container">
+                        <span class="toggle-label">Dark</span>
+                        <label class="toggle">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider"></span>
+                        </label>
                     </div>
-                    <div class="cart-icon">
-                        <i>🛒</i>
-                        <span class="cart-count">0</span>
-                    </div>
+                    <a href="cart.html" class="cart-link" aria-label="View Cart" tabindex="0" style="outline: none;">
+                        <div class="cart-icon" style="pointer-events: auto; cursor: pointer;">
+                            <i>🛒</i>
+                            <span class="cart-count">0</span>
+                        </div>
+                    </a>
                     <div class="mobile-menu">
                         <i>☰</i>
                     </div>
@@ -56,22 +135,16 @@
         </div>
     </header>
 
-    <!-- Cart Page Content -->
     <main>
-        <section class="cart-section">
-            <div class="container">
-                <h1 class="section-title">Your Shopping Cart</h1>
-                <div id="cart-items-container"></div>
-                <div class="cart-total" id="cart-total"></div>
-                <div class="cart-actions">
-                    <button class="btn-outline" id="clear-cart-btn">Clear Cart</button>
-                    <button class="btn hero-btn" id="checkout-btn">Checkout</button>
-                </div>
-            </div>
-        </section>
+        <div class="cart-main-container">
+            <h2>Your Cart</h2>
+            <div id="cart-content"></div>
+            <div class="cart-summary" id="cart-summary"></div>
+            <button class="checkout-btn" id="checkout-btn" style="display:none;">Proceed to Checkout</button>
+        </div>
     </main>
 
-    <!-- Footer (reuse from index.html) -->
+    <!-- Footer (copied from your index.html) -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -124,132 +197,94 @@
 
     <script src="js/cart.js"></script>
     <script>
-        // --- Cart Page Rendering ---
-        function renderCartPage() {
-            const cart = getCart();
-            const container = document.getElementById('cart-items-container');
-            const totalDiv = document.getElementById('cart-total');
-            if (!cart.length) {
-                container.innerHTML = '<div class="empty-cart"><p>Your cart is empty.</p></div>';
-                totalDiv.textContent = '';
-                document.querySelector('.cart-actions').style.display = 'none';
+        // Render the cart using the structure from cart.js (wildJasmineCart)
+        function renderCart() {
+            const cart = (localStorage.getItem('wildJasmineCart') ? JSON.parse(localStorage.getItem('wildJasmineCart')) : []);
+            const cartContent = document.getElementById('cart-content');
+            const cartSummary = document.getElementById('cart-summary');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            
+            if (cart.length === 0) {
+                cartContent.innerHTML = `<div class="empty-cart">Your cart is empty.</div>`;
+                cartSummary.textContent = '';
+                checkoutBtn.style.display = 'none';
                 return;
             }
-            document.querySelector('.cart-actions').style.display = 'flex';
-            container.innerHTML = cart.map(item => `
-                <div class="cart-item" data-id="${item.id}">
-                    <img src="${item.image}" alt="${item.name}" class="cart-item-img">
-                    <div class="cart-item-details">
-                        <div class="cart-item-title">${item.name}</div>
-                        <div class="cart-item-price">$${item.price.toFixed(2)}</div>
-                        <div>
-                            <button class="btn-outline decrease-qty">-</button>
-                            <input type="number" class="item-quantity-input" min="1" value="${item.quantity}">
-                            <button class="btn-outline increase-qty">+</button>
+            
+            let html = `<table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Product</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>`;
+            
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                html += `<tr>
+                    <td><img src="${item.image}" alt="${item.name}" class="cart-item-img"></td>
+                    <td>${item.name}</td>
+                    <td>
+                        <div class="qty-controls">
+                            <button class="qty-btn" data-action="decrease" data-id="${item.id}">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="qty-btn" data-action="increase" data-id="${item.id}">+</button>
                         </div>
-                        <div class="cart-item-remove">Remove</div>
-                    </div>
-                </div>
-            `).join('');
-            totalDiv.textContent = `Total: $${getTotal()}`;
+                    </td>
+                    <td>$${(item.price * item.quantity).toFixed(2)}</td>
+                    <td><button class="remove-btn" data-action="remove" data-id="${item.id}">Remove</button></td>
+                </tr>`;
+            });
+            
+            html += `</tbody></table>`;
+            cartContent.innerHTML = html;
+            cartSummary.textContent = `Total: $${total.toFixed(2)}`;
+            checkoutBtn.style.display = 'inline-block';
         }
 
-        // --- Cart Page Events ---
-        document.addEventListener('DOMContentLoaded', function() {
-            renderCartPage();
-
-            // Quantity change
-            document.getElementById('cart-items-container').addEventListener('click', function(e) {
-                const cartItem = e.target.closest('.cart-item');
-                if (!cartItem) return;
-                const productId = cartItem.getAttribute('data-id');
-                if (e.target.classList.contains('decrease-qty')) {
-                    const input = cartItem.querySelector('.item-quantity-input');
-                    let qty = parseInt(input.value, 10);
-                    if (qty > 1) {
-                        qty--;
-                        updateQuantity(productId, qty);
-                        input.value = qty;
-                        renderCartPage();
-                    }
+        // Event delegation for cart actions
+        document.getElementById('cart-content').addEventListener('click', function(e) {
+            const btn = e.target;
+            
+            if (btn.classList.contains('qty-btn')) {
+                const id = btn.getAttribute('data-id');
+                const action = btn.getAttribute('data-action');
+                let cart = (localStorage.getItem('wildJasmineCart') ? JSON.parse(localStorage.getItem('wildJasmineCart')) : []);
+                const idx = cart.findIndex(item => item.id === id);
+                
+                if (idx > -1) {
+                    let qty = cart[idx].quantity;
+                    if (action === 'increase') qty++;
+                    if (action === 'decrease') qty = Math.max(1, qty - 1);
+                    cart[idx].quantity = qty;
+                    localStorage.setItem('wildJasmineCart', JSON.stringify(cart));
+                    renderCart();
+                    if (typeof updateCartDisplay === "function") updateCartDisplay();
                 }
-                if (e.target.classList.contains('increase-qty')) {
-                    const input = cartItem.querySelector('.item-quantity-input');
-                    let qty = parseInt(input.value, 10);
-                    qty++;
-                    updateQuantity(productId, qty);
-                    input.value = qty;
-                    renderCartPage();
-                }
-                if (e.target.classList.contains('cart-item-remove')) {
-                    removeFromCart(productId);
-                    renderCartPage();
-                }
-            });
-
-            // Manual input
-            document.getElementById('cart-items-container').addEventListener('input', function(e) {
-                if (e.target.classList.contains('item-quantity-input')) {
-                    const cartItem = e.target.closest('.cart-item');
-                    const productId = cartItem.getAttribute('data-id');
-                    let qty = parseInt(e.target.value, 10);
-                    if (isNaN(qty) || qty < 1) qty = 1;
-                    updateQuantity(productId, qty);
-                    renderCartPage();
-                }
-            });
-
-            // Clear cart
-            document.getElementById('clear-cart-btn').addEventListener('click', function() {
-                clearCart();
-                renderCartPage();
-            });
-
-            // Checkout (demo)
-            document.getElementById('checkout-btn').addEventListener('click', function() {
-                alert('Thank you for your purchase! (Demo only)');
-                clearCart();
-                renderCartPage();
-            });
-        });
-
-        // --- Dark Mode Toggle (reuse from index.html) ---
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            body.classList.add('dark-mode');
-            darkModeToggle.checked = true;
-        }
-        darkModeToggle.addEventListener('change', () => {
-            if (darkModeToggle.checked) {
-                body.classList.add('dark-mode');
-                localStorage.setItem('darkMode', 'enabled');
-            } else {
-                body.classList.remove('dark-mode');
-                localStorage.setItem('darkMode', null);
+            }
+            
+            if (btn.classList.contains('remove-btn')) {
+                const id = btn.getAttribute('data-id');
+                let cart = (localStorage.getItem('wildJasmineCart') ? JSON.parse(localStorage.getItem('wildJasmineCart')) : []);
+                cart = cart.filter(item => item.id !== id);
+                localStorage.setItem('wildJasmineCart', JSON.stringify(cart));
+                renderCart();
+                if (typeof updateCartDisplay === "function") updateCartDisplay();
             }
         });
 
-        // --- Language Toggle (reuse from index.html) ---
-        const languageBtn = document.querySelector('.language-btn');
-        const languageDropdown = document.querySelector('.language-dropdown');
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.language-toggle')) {
-                languageDropdown.style.opacity = '0';
-                languageDropdown.style.visibility = 'hidden';
-                languageDropdown.style.transform = 'translateY(10px)';
-            }
+        // Checkout button
+        document.getElementById('checkout-btn').addEventListener('click', function() {
+            window.location.href = "checkout.html";
         });
-        document.querySelectorAll('.language-dropdown a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const lang = link.getAttribute('data-lang');
-                languageBtn.innerHTML = `<span>${lang.toUpperCase()}</span> ▼`;
-                languageDropdown.style.opacity = '0';
-                languageDropdown.style.visibility = 'hidden';
-                languageDropdown.style.transform = 'translateY(10px)';
-            });
-        });
+
+        // Render cart on page load
+        document.addEventListener('DOMContentLoaded', renderCart);
     </script>
 </body>
 </html>

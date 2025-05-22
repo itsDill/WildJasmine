@@ -47,6 +47,8 @@
         </div>
     </header>
 
+
+
     <!-- Shop Hero -->
     <section class="shop-hero">
         <div class="container">
@@ -343,6 +345,8 @@
         </div>
     </footer>
 
+    <script src="js/cart.js"></script>
+
     <script>
         // Dark Mode Toggle (same as home page)
         const darkModeToggle = document.getElementById('darkModeToggle');
@@ -362,55 +366,6 @@
                 localStorage.setItem('darkMode', null);
             }
         });
-
-        // Cart functionality
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const cartCount = document.querySelector('.cart-count');
-        
-        // Update cart count display
-        function updateCartCount() {
-            const count = cart.reduce((total, item) => total + item.quantity, 0);
-            cartCount.textContent = count;
-        }
-        
-        // Add to cart functionality
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', () => {
-                const productCard = button.closest('.product-card');
-                const productId = button.getAttribute('data-id');
-                const productTitle = productCard.querySelector('.product-title').textContent;
-                const productPrice = parseFloat(productCard.querySelector('.price').textContent.replace('R', ''));
-                const productImg = productCard.querySelector('.product-img').getAttribute('src');
-                
-                // Check if product already in cart
-                const existingItemIndex = cart.findIndex(item => item.id === productId);
-                
-                if (existingItemIndex > -1) {
-                    cart[existingItemIndex].quantity += 1;
-                } else {
-                    cart.push({
-                        id: productId,
-                        title: productTitle,
-                        price: productPrice,
-                        img: productImg,
-                        quantity: 1
-                    });
-                }
-                
-                // Save cart to localStorage
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartCount();
-                
-                // Visual feedback
-                button.textContent = '✓';
-                setTimeout(() => {
-                    button.textContent = '+';
-                }, 1000);
-            });
-        });
-        
-        // Initialize cart count
-        updateCartCount();
 
         // Price Range Filter
         const priceRange = document.getElementById('priceRange');
