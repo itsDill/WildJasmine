@@ -1151,44 +1151,53 @@
     <script src="js/cart.js"></script>
     <script src="js/carousel.js"></script>
 
-    <script>
-        // Dark Mode Toggle
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
+<script>
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
 
-        // Check for saved preference
-        if (localStorage.getItem('darkMode') === 'enabled') {
+    // Check for saved preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        body.classList.add('dark-mode');
+        darkModeToggle.checked = true;
+    }
+
+    darkModeToggle.addEventListener('change', () => {
+        if (darkModeToggle.checked) {
             body.classList.add('dark-mode');
-            darkModeToggle.checked = true;
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode', null);
         }
+    });
 
-        darkModeToggle.addEventListener('change', () => {
-            if (darkModeToggle.checked) {
-                body.classList.add('dark-mode');
-                localStorage.setItem('darkMode', 'enabled');
-            } else {
-                body.classList.remove('dark-mode');
-                localStorage.setItem('darkMode', null);
+    // Animate elements when they come into view
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.section-title, .category-card, .footer-widget');
+
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.2;
+
+            if (elementPosition < screenPosition) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
             }
         });
+    };
 
-        // Animate elements when they come into view
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.section-title, .category-card, .footer-widget');
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
 
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        };
-
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-    </script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        mobileMenu.addEventListener('click', function() {
+            navLinks.classList.toggle('nav-open');
+        });
+    });
+</script>
 </body>
 </html>
