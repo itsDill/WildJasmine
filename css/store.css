@@ -1,37 +1,4 @@
- /* Reuse your existing styles from the home page */
- :root {
-     --primary: #8a7968;
-     --secondary: #a5a58d;
-     --accent: #b7b7a4;
-     --light-bg: #f8f7f2;
-     --light-text: #3a3a3a;
-     --dark-bg: #3a3a3a;
-     --dark-text: #f8f7f2;
-     --warm-tan: #d4c8be;
-     --soft-green: #c9d4c1;
- }
- * {
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
-     transition: background-color 0.3s, color 0.3s, transform 0.3s;
- }
- body {
-     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     line-height: 1.6;
-     background-color: var(--light-bg);
-     color: var(--light-text);
- }
- body.dark-mode {
-     background-color: var(--dark-bg);
-     color: var(--dark-text);
- }
- .container {
-     width: 100%;
-     max-width: 1200px;
-     margin: 0 auto;
-     padding: 0 20px;
- }
+
  /* Shop Hero */
  .shop-hero {
      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/api/placeholder/1200/400');

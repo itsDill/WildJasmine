@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Wild Jasmine - Natural Handcrafted Skincare & Beauty Products</title>
+    <meta name="description" content="Learn about Wild Jasmine's commitment to natural ingredients, sustainable practices, and handcrafted beauty products made with love.">
+    <meta name="keywords" content="about wild jasmine, natural ingredients, sustainable beauty, handmade skincare, organic products">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="About Wild Jasmine - Natural Beauty Products">
+    <meta property="og:description" content="Discover our story, ingredients, and commitment to sustainable, handcrafted beauty products.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.wildjasmine.com/about">
+    <meta property="og:image" content="https://www.wildjasmine.com/images/about-social-share.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #8a7968;
+            --secondary: #a5a58d;
+            --accent: #b7b7a4;
+            --light-bg: #f8f7f2;
+            --light-text: #3a3a3a;
+            --dark-bg: #3a3a3a;
+            --dark-text: #f8f7f2;
+            --warm-tan: #d4c8be;
+            --soft-green: #c9d4c1;
+            --pattern-light: #f1f1f1;
+            --pattern-dark: #333333;
+            --transition: all 0.3s ease;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --box-shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        *:not(path) {
+            transition: var(--transition);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            color: var(--light-text);
+            overflow-x: hidden;
+        }
+
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* About Sections */
+        .about-section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .about-section:nth-child(even) {
+            background-color: var(--warm-tan);
+        }
+
+        body.dark-mode .about-section:nth-child(even) {
+            background-color: #444;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary);
+            left: 50%;
+            bottom: -15px;
+            transform: translateX(-50%);
+        }
+
+        .story-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .story-text {
+            flex: 1;
+        }
+
+        .story-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .story-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .story-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        body.dark-mode .value-card {
+            background: #333;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .value-card h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* Ingredients Section */
+        .ingredients-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .ingredients-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .ingredient-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        body.dark-mode .ingredient-card {
+            background: #333;
+        }
+
+        .ingredient-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .ingredient-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .ingredient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ingredient-icon {
+            font-size: 3rem;
+            color: white;
+        }
+
+        .ingredient-content {
+            padding: 25px;
+        }
+
+        .ingredient-content h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .ingredient-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        body.dark-mode .ingredient-content p {
+            color: #ccc;
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .process-step h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* Certifications */
+        .certifications {
+            background: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        body.dark-mode .certifications {
+            background: #333;
+        }
+
+        .cert-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .cert-badge {
+            background: var(--soft-green);
+            padding: 20px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            color: var(--light-text);
+            transition: var(--transition);
+        }
+
+        .cert-badge:hover {
+            transform: scale(1.05);
+            background: var(--primary);
+            color: white;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .story-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .values-grid,
+            .ingredients-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 80px 0 40px;
+            }
+
+            .about-section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cert-badges {
+                gap: 20px;
+            }
+
+            .cert-badge {
+                padding: 15px 25px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .values-grid,
+            .ingredients-grid,
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .value-card,
+            .ingredient-card {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="pics/Wild Jasmine Website logo.png" alt="Wild Jasmine Logo">
+                    Wild Jasmine
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="header-right">
+                    <div class="toggle-container">
+                        <span class="toggle-label">Dark</span>
+                        <label class="toggle">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <a href="cart.html" class="cart-link" aria-label="View Cart">
+                        <div class="cart-icon">
+                            <i>🛒</i>
+                            <span class="cart-count">0</span>
+                        </div>
+                    </a>
+                    <div class="mobile-menu">
+                        <i>☰</i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1>About Wild Jasmine</h1>
+                <p>Discover our passion for natural beauty, sustainable practices, and the art of handcrafted skincare</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Our Story</h2>
+            <div class="story-content animate-on-scroll">
+                <div class="story-text">
+                    <h3>Born from Passion</h3>
+                    <p>Wild Jasmine began in 2018 when founder Sarah discovered the transformative power of natural ingredients after struggling with sensitive skin for years. What started as a personal journey in her kitchen quickly blossomed into a mission to create pure, effective skincare for everyone.</p>
+                    <p>Every product is carefully crafted in small batches using time-honored methods and the finest natural ingredients. We believe that what you put on your skin should be as pure and nourishing as what you put in your body.</p>
+                </div>
+                <div class="story-image">
+                    <img src="/api/placeholder/500/300" alt="Wild Jasmine Workshop">
+                </div>
+            </div>
+            <div class="story-content animate-on-scroll">
+                <div class="story-image">
+                    <img src="/api/placeholder/500/300" alt="Natural Ingredients">
+                </div>
+                <div class="story-text">
+                    <h3>Commitment to Quality</h3>
+                    <p>From sourcing the finest organic botanicals to hand-pouring each candle, quality is at the heart of everything we do. Our products are free from harsh chemicals, synthetic fragrances, and unnecessary additives.</p>
+                    <p>We work directly with sustainable farms and ethical suppliers who share our values of environmental responsibility and fair trade practices. This ensures that every purchase supports not just your wellbeing, but the wellbeing of our planet and communities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card animate-on-scroll">
+                    <span class="value-icon">🌿</span>
+                    <h3>100% Natural</h3>
+                    <p>We use only pure, natural ingredients sourced from sustainable suppliers. No synthetic chemicals, parabens, or harmful additives ever touch our formulations.</p>
+                </div>
+                <div class="value-card animate-on-scroll">
+                    <span class="value-icon">♻️</span>
+                    <h3>Eco-Conscious</h3>
+                    <p>Our packaging is recyclable and biodegradable. We're committed to reducing our environmental footprint at every step of our process.</p>
+                </div>
+                <div class="value-card animate-on-scroll">
+                    <span class="value-icon">❤️</span>
+                    <h3>Handcrafted with Love</h3>
+                    <p>Every product is made in small batches with careful attention to detail. We put love and intention into each item we create.</p>
+                </div>
+                <div class="value-card animate-on-scroll">
+                    <span class="value-icon">🐰</span>
+                    <h3>Cruelty-Free</h3>
+                    <p>We never test on animals and are proud to be certified cruelty-free. Beauty should never come at the expense of our furry friends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Ingredients -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Premium Natural Ingredients</h2>
+            <div class="ingredients-intro animate-on-scroll">
+                <p>We carefully select each ingredient for its proven benefits and purity. Our formulations combine traditional botanical wisdom with modern understanding of skincare science to create products that truly nourish and protect your skin.</p>
+            </div>
+            <div class="ingredients-grid">
+                <div class="ingredient-card animate-on-scroll">
+                    <div class="ingredient-image">
+                        <div class="ingredient-overlay">
+                            <span class="ingredient-icon">🌹</span>
+                        </div>
+                    </div>
+                    <div class="ingredient-content">
+                        <h3>Rose Hip Oil</h3>
+                        <p>Rich in vitamin C and essential fatty acids, rose hip oil helps regenerate skin cells and reduce signs of aging while providing deep hydration.</p>
+                    </div>
+                </div>
+                <div class="ingredient-card animate-on-scroll">
+                    <div class="ingredient-image">
+                        <div class="ingredient-overlay">
+                            <span class="ingredient-icon">🫒</span>
+                        </div>
+                    </div>
+                    <div class="ingredient-content">
+                        <h3>Organic Jojoba Oil</h3>
+                        <p>Mimics your skin's natural sebum, making it perfect for all skin types. Jojoba oil moisturizes without clogging pores and helps balance oil production.</p>
+                    </div>
+                </div>
+                <div class="ingredient-card animate-on-scroll">
+                    <div class="ingredient-image">
+                        <div class="ingredient-overlay">
+                            <span class="ingredient-icon">🌾</span>
+                        </div>
+                    </div>
+                    <div class="ingredient-content">
+                        <h3>Shea Butter</h3>
+                        <p>Sourced from sustainable cooperatives in Ghana, our raw shea butter is rich in vitamins A and E, providing intense moisture and healing properties.</p>
+                    </div>
+                </div>
+                <div class="ingredient-card animate-on-scroll">
+                    <div class="ingredient-image">
+                        <div class="ingredient-overlay">
+                            <span class="ingredient-icon">🌸</span>
+                        </div>
+                    </div>
+                    <div class="ingredient-content">
+                        <h3>Essential Oils</h3>
+                        <p>Pure, therapeutic-grade essential oils from lavender, eucalyptus, and jasmine provide natural fragrance and aromatherapy benefits without synthetic perfumes.</p>
+                    </div>
+                </div>
+                <div class="ingredient-card animate-on-scroll">
+                    <div class="ingredient-image">
+                        <div class="ingredient-overlay">
+                            <span class="ingredient-icon">🏺</span>
+                        </div>
+                    </div>
+                    <div class="ingredient-content">
+                        <h3>French Clay</h3>
+                        <p>Mineral-rich clays from the south of France gently detoxify and purify skin, drawing out impurities while providing essential minerals.</p>
+                    </div>
+                </div>
+                <div class="ingredient-card animate-on-scroll">
+                    <div class="ingredient-image">
+                        <div class="ingredient-overlay">
+                            <span class="ingredient-icon">🐝</span>
+                        </div>
+                    </div>
+                    <div class="ingredient-content">
+                        <h3>Raw Honey</h3>
+                        <p>Unprocessed honey from local beekeepers provides natural antimicrobial properties and helps maintain skin's moisture balance while supporting local ecosystems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Our Handcrafted Process</h2>
+            <div class="process-steps">
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">1</div>
+                    <h3>Source</h3>
+                    <p>We carefully select premium ingredients from trusted suppliers who share our commitment to sustainability and quality.</p>
+                </div>
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">2</div>
+                    <h3>Formulate</h3>
+                    <p>Each recipe is developed and tested extensively to ensure the perfect balance of effectiveness and gentleness.</p>
+                </div>
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">3</div>
+                    <h3>Handcraft</h3>
+                    <p>Every product is made by hand in small batches to maintain freshness and quality control throughout the process.</p>
+                </div>
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">4</div>
+                    <h3>Package</h3>
+                    <p>Products are carefully packaged in eco-friendly materials and shipped with love directly to your door.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="certifications">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Our Commitments</h2>
+            <div class="cert-badges">
+                <div class="cert-badge animate-on-scroll">Cruelty-Free Certified</div>
+                <div class="cert-badge animate-on-scroll">USDA Organic</div>
+                <div class="cert-badge animate-on-scroll">Vegan Friendly</div>
+                <div class="cert-badge animate-on-scroll">Sustainably Sourced</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Experience Natural Beauty?</h2>
+                <p>Join thousands of customers who have discovered the transformative power of truly natural skincare. Your skin deserves the very best nature has to offer.</p>
+                <div class="cta-buttons">
+                    <a href="shop.html" class="btn btn-primary">Shop Our Collection</a>
+                    <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-widget">
+                    <h4>Wild Jasmine</h4>
+                    <p>Handcrafted natural beauty products made with love and respect for nature.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i>📱</i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i>📸</i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i>🐦</i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i>📌</i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-widget">
+                    <h4>Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Skincare</a></li>
+                        <li><a href="#">Bath & Body</a></li>
+                        <li><a href="#">Candles</a></li>
+                        <li><a href="#">Gift Sets</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>About</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Ingredients</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Customer Care</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Wild Jasmine. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/cart.js"></script>
+
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Check for saved preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+
+        darkModeToggle.addEventListener('change', () => {
+            if (darkModeToggle.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('darkMode', null);
+            }
+        });
+
+        // Animate elements when they come into view
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animated');
+                }
+            });
+        };
+
+        // Run animation check on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Run animation check on page load
+        window.addEventListener('load', animateOnScroll);
+
+        // Mobile menu functionality
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenu && navLinks) {
+            mobileMenu.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('show');
+                    mobileMenu.classList.remove('active');
+                }
+            });
+
+            // Close mobile menu when window is resized
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    navLinks.classList.remove('show');
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Cart functionality (basic implementation)
+        let cartCount = 0;
+        const cartCountElement = document.querySelector('.cart-count');
+
+        function updateCartCount() {
+            if (cartCountElement) {
+                cartCountElement.textContent = cartCount;
+            }
+        }
+
+        // Initialize cart count from localStorage if available
+        const savedCartCount = localStorage.getItem('cartCount');
+        if (savedCartCount) {
+            cartCount = parseInt(savedCartCount);
+            updateCartCount();
+        }
+
+        // Parallax effect for page header
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.page-header');
+            if (parallax) {
+                const speed = scrolled * 0.5;
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+
+        // Lazy loading for images
+        const images = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+
+        // Form validation helper functions
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 25px;
+                border-radius: 8px;
+                color: white;
+                font-weight: bold;
+                z-index: 10000;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                ${type === 'success' ? 'background-color: #28a745;' : 'background-color: #dc3545;'}
+            `;
+
+            document.body.appendChild(notification);
+
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+
+            // Animate out and remove
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Performance optimization: debounce scroll events
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Apply debouncing to scroll-heavy functions
+        const debouncedAnimateOnScroll = debounce(animateOnScroll, 10);
+        window.removeEventListener('scroll', animateOnScroll);
+        window.addEventListener('scroll', debouncedAnimateOnScroll);
+
+        // Accessibility improvements
+        document.addEventListener('keydown', (e) => {
+            // Escape key closes mobile menu
+            if (e.key === 'Escape') {
+                const navLinks = document.querySelector('.nav-links');
+                const mobileMenu = document.querySelector('.mobile-menu');
+                if (navLinks && navLinks.classList.contains('show')) {
+                    navLinks.classList.remove('show');
+                    mobileMenu.classList.remove('active');
+                }
+            }
+            
+            // Tab navigation improvements
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        // Remove keyboard navigation class on mouse use
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Initialize everything when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            // Run initial animation check
+            animateOnScroll();
+            
+            // Update cart count display
+            updateCartCount();
+            
+            // Set up any additional event listeners
+            console.log('Wild Jasmine About page loaded successfully!');
+        });
+    </script>
+</body>
+</html>

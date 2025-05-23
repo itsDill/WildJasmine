@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Wild Jasmine | Natural Beauty & Skincare Tips</title>
+    <meta name="description" content="Discover natural beauty tips, skincare advice, and new product features on the Wild Jasmine blog. Learn about sustainable beauty practices and handcrafted skincare.">
+    <meta name="keywords" content="natural skincare blog, beauty tips, organic skincare, sustainable beauty, skincare routine, handmade beauty products">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Wild Jasmine Blog - Natural Beauty & Skincare Tips">
+    <meta property="og:description" content="Discover natural beauty tips, skincare advice, and new product features from Wild Jasmine.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.wildjasmine.com/blog">
+    <meta property="og:image" content="https://www.wildjasmine.com/images/blog-share.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.wildjasmine.com/blog">
+
+    <!-- Preload important resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #8a7968;
+            --secondary: #a5a58d;
+            --accent: #b7b7a4;
+            --light-bg: #f8f7f2;
+            --light-text: #3a3a3a;
+            --dark-bg: #3a3a3a;
+            --dark-text: #f8f7f2;
+            --warm-tan: #d4c8be;
+            --soft-green: #c9d4c1;
+            --pattern-light: #f1f1f1;
+            --pattern-dark: #333333;
+            --transition: all 0.3s ease;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --box-shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.12);
+            --gradient-primary: linear-gradient(135deg, #8a7968, #a5a58d);
+            --gradient-accent: linear-gradient(135deg, #d4c8be, #c9d4c1);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        *:not(path) {
+            transition: var(--transition);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            color: var(--light-text);
+            overflow-x: hidden;
+        }
+
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            line-height: 1.3;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(248, 247, 242, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(138, 121, 104, 0.1);
+        }
+
+        body.dark-mode header {
+            background-color: rgba(58, 58, 58, 0.95);
+            border-bottom-color: rgba(138, 121, 104, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toggle {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .blog-hero {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 1;
+        }
+
+        .blog-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .blog-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .blog-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .blog-main {
+            padding: 80px 0;
+        }
+
+        .blog-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 60px;
+            align-items: start;
+        }
+
+        /* Featured Post */
+        .featured-post {
+            margin-bottom: 80px;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .featured-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        body.dark-mode .featured-card {
+            background: #444;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .featured-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .featured-image {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .featured-card:hover .featured-image img {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.3));
+        }
+
+        .post-category {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .featured-content {
+            padding: 40px;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        body.dark-mode .post-meta {
+            color: #ccc;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .featured-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .featured-excerpt {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        body.dark-mode .featured-excerpt {
+            color: #ddd;
+        }
+
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .read-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(138, 121, 104, 0.3);
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: fit-content;
+        }
+
+        body.dark-mode .blog-card {
+            background: #444;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .blog-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-title {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        body.dark-mode .blog-excerpt {
+            color: #ddd;
+        }
+
+        .blog-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        body.dark-mode .blog-footer {
+            border-top-color: #555;
+        }
+
+        .blog-date {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        body.dark-mode .blog-date {
+            color: #aaa;
+        }
+
+        .blog-link {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .blog-link:hover {
+            color: #75665a;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 120px;
+        }
+
+        .sidebar-widget {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+        }
+
+        body.dark-mode .sidebar-widget {
+            background: #444;
+        }
+
+        .widget-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary);
+            position: relative;
+        }
+
+        .widget-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--gradient-primary);
+        }
+
+        /* Search Widget */
+        .search-form {
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: 2px solid #eee;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            background: var(--light-bg);
+        }
+
+        body.dark-mode .search-input {
+            background: #333;
+            border-color: #555;
+            color: white;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-btn:hover {
+            background: #75665a;
+        }
+
+        /* Categories Widget */
+        .category-list {
+            list-style: none;
+        }
+
+        .category-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+        }
+
+        body.dark-mode .category-item {
+            border-bottom-color: #555;
+        }
+
+        .category-item:hover {
+            color: var(--primary);
+            padding-left: 10px;
+        }
+
+        .category-count {
+            background: var(--accent);
+            color: var(--light-text);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Recent Posts Widget */
+        .recent-post {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        body.dark-mode .recent-post {
+            border-bottom-color: #555;
+        }
+
+        .recent-post:last-child {
+            border-bottom: none;
+        }
+
+        .recent-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .recent-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .recent-content h4 {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .recent-date {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        body.dark-mode .recent-date {
+            color: #aaa;
+        }
+
+        /* Newsletter Widget */
+        .newsletter-widget {
+            background: var(--gradient-accent);
+            color: var(--light-text);
+        }
+
+        .newsletter-form {
+            margin-top: 20px;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 25px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-btn {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background: #75665a;
+            transform: translateY(-2px);
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 60px;
+        }
+
+        .pagination-btn {
+            padding: 10px 15px;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .pagination-btn:hover,
+        .pagination-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-widget h4 {
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .sidebar {
+                position: static;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+            }
+
+            .sidebar-widget {
+                margin-bottom: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .blog-hero {
+                padding-top: 100px;
+                padding-bottom: 60px;
+            }
+
+            .blog-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .blog-main {
+                padding: 60px 0;
+            }
+
+            .featured-post {
+                margin-bottom: 60px;
+            }
+
+            .featured-content {
+                padding: 30px 25px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .sidebar {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .blog-hero h1 {
+                font-size: 2rem;
+            }
+
+            .featured-title {
+                font-size: 1.5rem;
+            }
+
+            .featured-content {
+                padding: 25px 20px;
+            }
+
+            .blog-content {
+                padding: 20px;
+            }
+
+            .sidebar-widget {
+                padding: 25px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Loading states */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="pics/Wild Jasmine Website logo.png" alt="Wild Jasmine Logo">
+                    Wild Jasmine
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="header-right">
+                    <div class="toggle-container">
+                        <span class="toggle-label">Dark</span>
+                        <label class="toggle">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="mobile-menu">
+                        <i>☰</i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-hero-content">
+                <h1>Natural Beauty Journal</h1>
+                <p>Discover the latest in natural skincare, beauty tips, and behind-the-scenes stories from our handcrafted product collection.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="blog-main">
+        <div class="container">
+            <!-- Featured Post -->
+            <section class="featured-post fade-in">
+                <div class="featured-badge">Featured Story</div>
+                <article class="featured-card">
+                    <div class="featured-image">
+                        <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=800&h=400&fit=crop&crop=center" alt="New Rose Clay Collection" loading="lazy">
+                        <div class="image-overlay"></div>
+                        <span class="post-category">New Products</span>
+                    </div>
+                    <div class="featured-content">
+                        <div class="post-meta">
+                            <span class="meta-item">
+                                📅 January 15, 2025
+                            </span>
+                            <span class="meta-item">
+                                👤 Sarah Mitchell
+                            </span>
+                            <span class="meta-item">
+                                ⏱️ 5 min read
+                            </span>
+                        </div>
+                        <h2 class="featured-title">Introducing Our New Rose Clay Collection: Nature's Gift to Your Skin</h2>
+                        <p class="featured-excerpt">We're thrilled to unveil our latest creation - a luxurious collection of rose clay skincare products that harness the purifying power of French pink clay. Discover how these gentle yet effective formulations can transform your daily skincare routine into a spa-like ritual.</p>
+                        <a href="#" class="read-more-btn">
+                            Read Full Story
+                            <span>→</span>
+                        </a>
+                    </div>
+                </article>
+            </section>
+
+            <div class="blog-container">
+                <!-- Blog Grid -->
+                <section class="blog-posts">
+                    <div class="blog-grid">
+                        <article class="blog-card fade-in">
+                            <div class="blog-image">
+                                <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=250&fit=crop&crop=center" alt="Winter Skincare Tips" loading="lazy">
+                                <span class="post-category">Beauty Tips</span>
+                            </div>
+                            <div class="blog-content">
+                                <h3 class="blog-title">Winter Skincare: Protecting Your Skin from Cold Weather</h3>
+                                <p class="blog-excerpt">As temperatures drop, your skin needs extra care and protection. Learn our top tips for maintaining healthy, hydrated skin throughout the winter months using natural ingredients.</p>
+                                <div class="blog-footer">
+                                    <span class="blog-date">January 12, 2025</span>
+                                    <a href="#" class="blog-link">Read More →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class=blog-card fade-in">
+                            <div class="blog-image">
+                                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=250&fit=crop&crop=center" alt="DIY Face Mask" loading="lazy">
+                                <span class="post-category">DIY Recipes</span>
+                            </div>
+                            <div class="blog-content">
+                                <h3 class="blog-title">5 DIY Face Masks Using Kitchen Ingredients</h3>
+                                <p class="blog-excerpt">Transform your kitchen into a beauty lab with these simple, effective face mask recipes using ingredients you already have at home. Natural, affordable, and incredibly nourishing.</p>
+                                <div class="blog-footer">
+                                    <span class="blog-date">January 10, 2025</span>
+                                    <a href="#" class="blog-link">Read More →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="blog-card fade-in">
+                            <div class="blog-image">
+                                <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=250&fit=crop&crop=center" alt="Sustainable Beauty" loading="lazy">
+                                <span class="post-category">Sustainability</span>
+                            </div>
+                            <div class="blog-content">
+                                <h3 class="blog-title">The Journey to Zero-Waste Beauty: Small Steps, Big Impact</h3>
+                                <p class="blog-excerpt">Discover how to reduce your beauty routine's environmental footprint without sacrificing effectiveness. Learn about sustainable packaging, refillable options, and eco-friendly alternatives.</p>
+                                <div class="blog-footer">
+                                    <span class="blog-date">January 8, 2025</span>
+                                    <a href="#" class="blog-link">Read More →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="blog-card fade-in">
+                            <div class="blog-image">
+                                <img src="https://images.unsplash.com/photo-1599305445063-3e6167c2cd80?w=400&h=250&fit=crop&crop=center" alt="Ingredient Spotlight" loading="lazy">
+                                <span class="post-category">Ingredients</span>
+                            </div>
+                            <div class="blog-content">
+                                <h3 class="blog-title">Ingredient Spotlight: The Magic of Jojoba Oil</h3>
+                                <p class="blog-excerpt">Not technically an oil but a liquid wax, jojoba oil is one of nature's most versatile skincare ingredients. Learn why it's perfect for all skin types and how to incorporate it into your routine.</p>
+                                <div class="blog-footer">
+                                    <span class="blog-date">January 5, 2025</span>
+                                    <a href="#" class="blog-link">Read More →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="blog-card fade-in">
+                            <div class="blog-image">
+                                <img src="https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=400&h=250&fit=crop&crop=center" alt="Morning Routine" loading="lazy">
+                                <span class="post-category">Routines</span>
+                            </div>
+                            <div class="blog-content">
+                                <h3 class="blog-title">Creating Your Perfect Morning Skincare Ritual</h3>
+                                <p class="blog-excerpt">Start your day with intention and self-care. We'll guide you through building a morning skincare routine that energizes your skin and sets a positive tone for the entire day.</p>
+                                <div class="blog-footer">
+                                    <span class="blog-date">January 3, 2025</span>
+                                    <a href="#" class="blog-link">Read More →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="blog-card fade-in">
+                            <div class="blog-image">
+                                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=250&fit=crop&crop=center" alt="Behind the Scenes" loading="lazy">
+                                <span class="post-category">Behind the Scenes</span>
+                            </div>
+                            <div class="blog-content">
+                                <h3 class="blog-title">From Concept to Creation: How We Develop New Products</h3>
+                                <p class="blog-excerpt">Take a peek behind the curtain at our product development process. From initial inspiration to the final formulation, discover the care and craftsmanship that goes into every Wild Jasmine product.</p>
+                                <div class="blog-footer">
+                                    <span class="blog-date">December 30, 2024</span>
+                                    <a href="#" class="blog-link">Read More →</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="pagination-btn" disabled>← Previous</button>
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">3</button>
+                        <button class="pagination-btn">Next →</button>
+                    </div>
+                </section>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <!-- Search Widget -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Search</h3>
+                        <form class="search-form">
+                            <input type="text" class="search-input" placeholder="Search articles...">
+                            <button type="submit" class="search-btn">🔍</button>
+                        </form>
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Categories</h3>
+                        <ul class="category-list">
+                            <li class="category-item">
+                                <a href="#">Beauty Tips</a>
+                                <span class="category-count">12</span>
+                            </li>
+                            <li class="category-item">
+                                <a href="#">DIY Recipes</a>
+                                <span class="category-count">8</span>
+                            </li>
+                            <li class="category-item">
+                                <a href="#">Ingredients</a>
+                                <span class="category-count">15</span>
+                            </li>
+                            <li class="category-item">
+                                <a href="#">New Products</a>
+                                <span class="category-count">6</span>
+                            </li>
+                            <li class="category-item">
+                                <a href="#">Routines</a>
+                                <span class="category-count">10</span>
+                            </li>
+                            <li class="category-item">
+                                <a href="#">Sustainability</a>
+                                <span class="category-count">7</span>
+                            </li>
+                            <li class="category-item">
+                                <a href="#">Behind the Scenes</a>
+                                <span class="category-count">4</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Recent Posts Widget -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Recent Posts</h3>
+                        <div class="recent-posts">
+                            <article class="recent-post">
+                                <div class="recent-image">
+                                    <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=80&h=80&fit=crop&crop=center" alt="Rose Clay Collection" loading="lazy">
+                                </div>
+                                <div class="recent-content">
+                                    <h4><a href="#">New Rose Clay Collection Launch</a></h4>
+                                    <span class="recent-date">January 15, 2025</span>
+                                </div>
+                            </article>
+
+                            <article class="recent-post">
+                                <div class="recent-image">
+                                    <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=80&h=80&fit=crop&crop=center" alt="Winter Skincare" loading="lazy">
+                                </div>
+                                <div class="recent-content">
+                                    <h4><a href="#">Winter Skincare Protection Tips</a></h4>
+                                    <span class="recent-date">January 12, 2025</span>
+                                </div>
+                            </article>
+
+                            <article class="recent-post">
+                                <div class="recent-image">
+                                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=80&h=80&fit=crop&crop=center" alt="DIY Face Mask" loading="lazy">
+                                </div>
+                                <div class="recent-content">
+                                    <h4><a href="#">5 DIY Face Masks for Glowing Skin</a></h4>
+                                    <span class="recent-date">January 10, 2025</span>
+                                </div>
+                            </article>
+
+                            <article class="recent-post">
+                                <div class="recent-image">
+                                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=80&h=80&fit=crop&crop=center" alt="Sustainable Beauty" loading="lazy">
+                                </div>
+                                <div class="recent-content">
+                                    <h4><a href="#">Zero-Waste Beauty Journey</a></h4>
+                                    <span class="recent-date">January 8, 2025</span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Widget -->
+                    <div class="sidebar-widget newsletter-widget">
+                        <h3 class="widget-title">Stay Updated</h3>
+                        <p>Subscribe to our newsletter for the latest beauty tips, product launches, and exclusive offers.</p>
+                        <form class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                            <button type="submit" class="newsletter-btn">Subscribe</button>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-widget">
+                    <h4>Wild Jasmine</h4>
+                    <p>Handcrafted natural skincare products made with love and the finest organic ingredients. Your skin deserves the best nature has to offer.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📌</a>
+                    </div>
+                </div>
+                <div class="footer-widget">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop All Products</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="blog.html">Beauty Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Customer Care</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Track Your Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Get in Touch</h4>
+                    <p>📧 hello@wildjasmine.com</p>
+                    <p>📱 (555) 123-4567</p>
+                    <p>📍 123 Botanical Lane<br>Garden City, GC 12345</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Wild Jasmine. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    
+
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+
+        darkModeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', function() {
+            navLinks.classList.toggle('show');
+        });
+
+        // Search Functionality
+        const searchForm = document.querySelector('.search-form');
+        const searchInput = document.querySelector('.search-input');
+
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm) {
+                // Implement search functionality here
+                console.log('Searching for:', searchTerm);
+                // You could filter blog posts or redirect to search results
+            }
+        });
+
+        // Newsletter Form
+        const newsletterForm = document.querySelector('.newsletter-form');
+        const newsletterInput = document.querySelector('.newsletter-input');
+
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = newsletterInput.value.trim();
+            if (email) {
+                // Implement newsletter subscription here
+                alert('Thank you for subscribing to our newsletter!');
+                newsletterInput.value = '';
+            }
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Pagination Functionality
+        const paginationBtns = document.querySelectorAll('.pagination-btn');
+        
+        paginationBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (!this.disabled && !this.classList.contains('active')) {
+                    // Remove active class from all buttons
+                    paginationBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button (if it's a number)
+                    if (!isNaN(this.textContent)) {
+                        this.classList.add('active');
+                    }
+                    
+                    // Implement pagination logic here
+                    console.log('Loading page:', this.textContent);
+                }
+            });
+        });
+
+        // Category Filter Functionality
+        const categoryItems = document.querySelectorAll('.category-item a');
+        
+        categoryItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const category = this.textContent;
+                console.log('Filtering by category:', category);
+                // Implement category filtering here
+            });
+        });
+
+        // Intersection Observer for Fade-in Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Header Scroll Effect
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Image Lazy Loading Enhancement
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('fade-in');
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => {
+            imageObserver.observe(img);
+        });
+
+        // Performance: Debounce scroll events
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Apply debouncing to scroll-heavy functions
+        const debouncedScrollHandler = debounce(function() {
+            // Any heavy scroll processing can go here
+        }, 10);
+
+        window.addEventListener('scroll', debouncedScrollHandler);
+    </script>
+</body>
+</html>
