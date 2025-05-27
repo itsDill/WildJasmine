@@ -1,29 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Improved Meta Tags for SEO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wild Jasmine - Premium Natural Handcrafted Skincare & Beauty Products</title>
-    <meta name="description" content="Discover Wild Jasmine's luxury collection of natural, handcrafted skincare, bath & body products, and candles. Premium organic ingredients, sustainable beauty solutions.">
-    <meta name="keywords" content="luxury natural skincare, premium organic beauty, handmade soap, artisan bath bombs, soy candles, cruelty-free products, sustainable beauty">
+    <title>Wild Jasmine | Premium Natural Handcrafted Skincare & Beauty Products</title>
+    <meta name="description" content="Wild Jasmine offers luxury natural skincare, handmade soaps, artisan bath bombs & soy candles. Cruelty-free, organic beauty products crafted with care.">
+    <meta name="keywords" content="natural skincare, organic beauty, handmade soap, bath bombs, soy candles, cruelty-free, sustainable beauty, luxury skincare, vegan beauty">
     <meta name="author" content="Wild Jasmine">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#8a7968">
 
     <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Wild Jasmine - Premium Natural Handcrafted Beauty Products">
+    <meta property="og:title" content="Wild Jasmine | Premium Natural Handcrafted Beauty Products">
     <meta property="og:description" content="Discover our luxury collection of premium skincare and home fragrance products made with organic ingredients.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.wildjasmine.com">
     <meta property="og:image" content="https://www.wildjasmine.com/images/social-share.jpg">
+    <meta property="og:site_name" content="Wild Jasmine">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Wild Jasmine | Premium Natural Handcrafted Beauty Products">
+    <meta name="twitter:description" content="Discover our luxury collection of premium skincare and home fragrance products made with organic ingredients.">
+    <meta name="twitter:image" content="https://www.wildjasmine.com/images/social-share.jpg">
 
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.wildjasmine.com">
 
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" as="style">
+    <link rel="preload" href="pics/Wild Jasmine Website bath.png" as="image">
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Wild Jasmine",
+      "url": "https://www.wildjasmine.com",
+      "logo": "https://www.wildjasmine.com/pics/Wild Jasmine Website logo.png",
+      "description": "Premium natural handcrafted skincare and beauty products",
+      "sameAs": [
+        "https://www.facebook.com/wildjasmine",
+        "https://www.instagram.com/wildjasmine",
+        "https://www.pinterest.com/wildjasmine"
+      ]
+    }
+    </script>
 
     <style>
         /* CSS Variables */
@@ -51,6 +83,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.7;
@@ -58,6 +94,8 @@
             color: var(--light-text);
             overflow-x: hidden;
             font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
 
         body.dark-mode {
@@ -77,22 +115,48 @@
             font-family: 'Playfair Display', serif;
             line-height: 1.2;
             font-weight: 600;
+            margin-bottom: 1rem;
         }
 
-        /* Header */
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Header - Improved */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
             z-index: 1000;
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             transition: var(--transition);
+            padding: 0.5rem 0;
         }
 
         body.dark-mode header {
-            background: rgba(44, 44, 44, 0.95);
+            background: rgba(44, 44, 44, 0.98);
             border-bottom-color: rgba(255, 255, 255, 0.08);
         }
 
@@ -100,7 +164,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 0;
+            padding: 0.5rem 0;
         }
 
         .logo {
@@ -111,19 +175,21 @@
             font-weight: 700;
             color: var(--primary);
             text-decoration: none;
+            gap: 0.75rem;
         }
 
         .logo img {
             width: 40px;
             height: 40px;
-            margin-right: 12px;
             border-radius: 8px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 32px;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
         }
 
         .nav-links a {
@@ -131,6 +197,7 @@
             color: inherit;
             font-weight: 500;
             position: relative;
+            padding: 0.5rem 0;
             transition: var(--transition);
         }
 
@@ -143,11 +210,10 @@
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -4px;
-            left: 50%;
+            bottom: 0;
+            left: 0;
             background-color: var(--primary);
             transition: var(--transition);
-            transform: translateX(-50%);
         }
 
         .nav-links a:hover:after {
@@ -157,15 +223,17 @@
         .header-right {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 1.25rem;
         }
 
         .cart-icon {
             position: relative;
             cursor: pointer;
-            padding: 8px;
+            padding: 0.5rem;
             border-radius: 8px;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
         }
 
         .cart-icon:hover {
@@ -174,14 +242,14 @@
 
         .cart-count {
             position: absolute;
-            top: 0;
-            right: 0;
+            top: -0.25rem;
+            right: -0.25rem;
             background: var(--primary);
             color: white;
             border-radius: 50%;
-            width: 18px;
-            height: 18px;
-            font-size: 12px;
+            width: 1.25rem;
+            height: 1.25rem;
+            font-size: 0.75rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -192,22 +260,30 @@
             display: none;
             cursor: pointer;
             font-size: 1.5rem;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu:hover {
+            background: rgba(138, 121, 104, 0.1);
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             background: linear-gradient(135deg, var(--warm-tan) 0%, var(--soft-green) 100%);
             overflow: hidden;
+            padding: 6rem 0;
         }
 
         .hero-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 5rem;
             align-items: center;
             width: 100%;
             z-index: 2;
@@ -218,8 +294,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 6vw, 5rem);
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
             background: linear-gradient(135deg, var(--primary), var(--luxury-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -229,19 +304,20 @@
 
         .hero p {
             font-size: 1.25rem;
-            margin-bottom: 40px;
+            margin-bottom: 2.5rem;
             color: var(--light-text);
-            opacity: 0.8;
+            opacity: 0.9;
             line-height: 1.6;
+            max-width: 90%;
         }
 
         .hero-btn {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 0.75rem;
             background: var(--primary);
             color: white;
-            padding: 18px 36px;
+            padding: 1rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -250,6 +326,8 @@
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            border: none;
+            cursor: pointer;
         }
 
         .hero-btn:hover {
@@ -276,6 +354,7 @@
         .hero-image {
             text-align: center;
             animation: fadeInUp 1s ease-out 0.3s both;
+            position: relative;
         }
 
         .hero-product {
@@ -292,7 +371,7 @@
 
         /* Categories Section */
         .categories {
-            padding: 120px 0;
+            padding: 7.5rem 0;
             background: var(--light-bg);
         }
 
@@ -302,18 +381,17 @@
 
         .section-title {
             text-align: center;
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            margin-bottom: 80px;
+            margin-bottom: 5rem;
             position: relative;
         }
 
         .section-title:after {
             content: '';
             position: absolute;
-            bottom: -20px;
+            bottom: -1.25rem;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
+            width: 7.5rem;
             height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--luxury-gold));
             border-radius: 2px;
@@ -322,7 +400,7 @@
         .categories-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            gap: 2.5rem;
         }
 
         .category-card {
@@ -346,7 +424,7 @@
 
         .category-img {
             width: 100%;
-            height: 240px;
+            height: 280px;
             object-fit: cover;
             transition: var(--transition);
         }
@@ -356,19 +434,19 @@
         }
 
         .category-content {
-            padding: 32px;
+            padding: 2rem;
             text-align: center;
         }
 
         .category-content h3 {
             font-size: 1.5rem;
-            margin-bottom: 12px;
+            margin-bottom: 0.75rem;
             color: var(--primary);
         }
 
         .category-content p {
             color: #666;
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
             line-height: 1.6;
         }
 
@@ -377,7 +455,7 @@
         }
 
         .btn-outline {
-            padding: 12px 24px;
+            padding: 0.75rem 1.5rem;
             border: 2px solid var(--primary);
             color: var(--primary);
             background: transparent;
@@ -386,6 +464,7 @@
             transition: var(--transition);
             text-decoration: none;
             display: inline-block;
+            cursor: pointer;
         }
 
         .btn-outline:hover {
@@ -394,9 +473,9 @@
             transform: translateY(-2px);
         }
 
-        /* Featured Products Carousel */
+        /* Featured Products Carousel - Improved */
         .featured-products {
-            padding: 120px 0;
+            padding: 7.5rem 0;
             background: var(--warm-tan);
             position: relative;
         }
@@ -415,9 +494,9 @@
         .carousel-main {
             display: grid;
             grid-template-columns: 1fr 400px;
-            gap: 60px;
+            gap: 3.75rem;
             align-items: center;
-            margin-bottom: 60px;
+            margin-bottom: 3.75rem;
         }
 
         .carousel-featured {
@@ -433,6 +512,7 @@
             border-radius: 24px;
             box-shadow: var(--shadow-heavy);
             transition: var(--transition);
+            margin: 0 auto;
         }
 
         .featured-image:hover {
@@ -440,7 +520,7 @@
         }
 
         .carousel-info {
-            padding: 40px;
+            padding: 2.5rem;
             background: white;
             border-radius: 20px;
             box-shadow: var(--shadow-light);
@@ -453,11 +533,11 @@
 
         .product-badge {
             position: absolute;
-            top: -12px;
-            left: 40px;
+            top: -0.75rem;
+            left: 2.5rem;
             background: var(--luxury-gold);
             color: white;
-            padding: 6px 16px;
+            padding: 0.375rem 1rem;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
@@ -467,13 +547,13 @@
 
         .carousel-info h3 {
             font-size: 2rem;
-            margin-bottom: 16px;
+            margin-bottom: 1rem;
             color: var(--primary);
         }
 
         .carousel-info p {
             color: #666;
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
             line-height: 1.6;
         }
 
@@ -485,20 +565,22 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
         }
 
         .add-to-cart-btn {
             background: var(--primary);
             color: white;
             border: none;
-            padding: 16px 32px;
+            padding: 1rem 2rem;
             border-radius: 50px;
             font-weight: 600;
             font-size: 1rem;
             cursor: pointer;
             transition: var(--transition);
             box-shadow: var(--shadow-light);
+            width: 100%;
+            max-width: 200px;
         }
 
         .add-to-cart-btn:hover {
@@ -509,9 +591,10 @@
 
         .carousel-thumbnails {
             display: flex;
-            gap: 20px;
+            gap: 1.25rem;
             justify-content: center;
-            margin-top: 40px;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
         }
 
         .thumbnail {
@@ -553,6 +636,7 @@
             box-shadow: var(--shadow-light);
             transition: var(--transition);
             z-index: 10;
+            opacity: 0.9;
         }
 
         body.dark-mode .carousel-nav {
@@ -564,19 +648,20 @@
             background: var(--primary);
             color: white;
             transform: translateY(-50%) scale(1.1);
+            opacity: 1;
         }
 
         .nav-prev {
-            left: -25px;
+            left: 0;
         }
 
         .nav-next {
-            right: -25px;
+            right: 0;
         }
 
         /* Newsletter */
         .newsletter {
-            padding: 100px 0;
+            padding: 6.25rem 0;
             background: linear-gradient(135deg, var(--primary) 0%, var(--luxury-gold) 100%);
             color: white;
             text-align: center;
@@ -584,12 +669,12 @@
 
         .newsletter h2 {
             font-size: 2.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
         }
 
         .newsletter p {
             font-size: 1.1rem;
-            margin-bottom: 40px;
+            margin-bottom: 2.5rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -608,20 +693,22 @@
 
         .newsletter-input {
             flex: 1;
-            padding: 18px 24px;
+            padding: 1.125rem 1.5rem;
             border: none;
             font-size: 1rem;
             outline: none;
+            min-width: 0;
         }
 
         .newsletter-btn {
             background: white;
             color: var(--primary);
             border: none;
-            padding: 18px 32px;
+            padding: 1.125rem 2rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
+            white-space: nowrap;
         }
 
         .newsletter-btn:hover {
@@ -632,34 +719,36 @@
         footer {
             background: var(--dark-bg);
             color: var(--dark-text);
-            padding: 80px 0 40px;
+            padding: 5rem 0 2.5rem;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 40px;
+            gap: 3.75rem;
+            margin-bottom: 2.5rem;
         }
 
         .footer-widget h4 {
             font-size: 1.2rem;
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
             color: var(--luxury-gold);
         }
 
         .footer-widget p {
             line-height: 1.6;
             opacity: 0.8;
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
         }
 
         .footer-links {
             list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 0.75rem;
         }
 
         .footer-links a {
@@ -667,16 +756,20 @@
             text-decoration: none;
             opacity: 0.8;
             transition: var(--transition);
+            display: inline-block;
+            padding: 0.25rem 0;
         }
 
         .footer-links a:hover {
             opacity: 1;
             color: var(--luxury-gold);
+            transform: translateX(4px);
         }
 
         .social-links {
             display: flex;
-            gap: 16px;
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
         .social-link {
@@ -697,9 +790,107 @@
 
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 40px;
+            padding-top: 2.5rem;
             text-align: center;
             opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Featured Products Grid - New Section */
+        .products-grid-section {
+            padding: 7.5rem 0;
+            background: var(--light-bg);
+        }
+
+        body.dark-mode .products-grid-section {
+            background: var(--dark-bg);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        body.dark-mode .product-card {
+            background: #3a3a3a;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--luxury-gold);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .product-image-container {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .product-price {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart-small {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-to-cart-small:hover {
+            background: #75665a;
         }
 
         /* Animations */
@@ -714,28 +905,104 @@
             }
         }
 
-        /* Responsive Design */
+        /* Loading Animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid var(--primary);
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 2rem auto;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-heavy);
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Responsive Design - Improved */
+        @media (max-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         @media (max-width: 1024px) {
             .hero-content {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 2.5rem;
                 text-align: center;
+            }
+
+            .hero p {
+                max-width: 100%;
             }
 
             .carousel-main {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 2.5rem;
             }
 
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 40px;
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: var(--shadow-medium);
+                transform: translateY(-150%);
+                transition: transform 0.4s ease;
+                z-index: 999;
+            }
+
+            body.dark-mode .nav-links {
+                background: var(--dark-bg);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
             }
 
             .mobile-menu {
@@ -743,27 +1010,22 @@
             }
 
             .hero {
-                height: 90vh;
-                padding: 120px 0 60px;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
+                min-height: auto;
+                padding: 6rem 0 3rem;
             }
 
             .categories-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 1.5rem;
             }
 
             .carousel-thumbnails {
-                gap: 12px;
-                flex-wrap: wrap;
+                gap: 0.75rem;
             }
 
             .thumbnail {
-                width: 80px;
-                height: 80px;
+                width: 70px;
+                height: 70px;
             }
 
             .newsletter-form {
@@ -774,21 +1036,22 @@
             .newsletter-input,
             .newsletter-btn {
                 border-radius: 12px;
+                width: 100%;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 2rem;
             }
 
-            .carousel-nav {
-                display: none;
+            .featured-image {
+                height: 350px;
             }
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 16px;
+        @media (max-width: 600px) {
+            .products-grid {
+                grid-template-columns: 1fr;
             }
 
             .featured-image {
@@ -796,26 +1059,125 @@
             }
 
             .carousel-info {
-                padding: 24px;
+                padding: 1.5rem;
             }
 
             .carousel-info h3 {
                 font-size: 1.5rem;
+            }
+
+            .section-title {
+                margin-bottom: 3rem;
+            }
+
+            .categories, .featured-products, .products-grid-section {
+                padding: 5rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .logo img {
+                width: 32px;
+                height: 32px;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-btn {
+                padding: 0.875rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .featured-image {
+                height: 250px;
+            }
+
+            .product-image-container {
+                height: 250px;
+            }
+        }
+
+        /* Accessibility Improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 4px;
+        }
+
+        /* Print Styles */
+        @media print {
+            header, footer, .newsletter, .mobile-menu {
+                display: none !important;
+            }
+
+            body {
+                background: white !important;
+                color: black !important;
+                font-size: 12pt;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .hero, .categories, .featured-products {
+                padding: 1rem 0 !important;
+                height: auto !important;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            a::after {
+                content: " (" attr(href) ")";
+                font-size: 0.8em;
+                font-weight: normal;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Header -->
+    <!-- Skip to Content Link for Accessibility -->
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+
+    <!-- Header - Improved -->
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">
-                    <img src="pics/Wild Jasmine Website logo.png" alt="Wild Jasmine Logo">
+                <a href="#" class="logo" aria-label="Wild Jasmine Home">
+                    <img src="pics/Wild Jasmine Website logo.png" alt="Wild Jasmine Logo" width="40" height="40">
                     Wild Jasmine
                 </a>
-                <ul class="nav-links">
+                <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
                     <li><a href="about.html">About</a></li>
@@ -823,12 +1185,12 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
                 <div class="header-right">
-                    <div class="cart-icon" onclick="toggleCart()">
-                        <span>🛒</span>
+                    <div class="cart-icon" onclick="toggleCart()" aria-label="Shopping Cart" role="button" tabindex="0">
+                        <span aria-hidden="true">🛒</span>
                         <span class="cart-count">0</span>
                     </div>
-                    <div class="mobile-menu" onclick="toggleMobileMenu()">
-                        <span>☰</span>
+                    <div class="mobile-menu" onclick="toggleMobileMenu()" aria-label="Menu" role="button" tabindex="0">
+                        <span aria-hidden="true">☰</span>
                     </div>
                 </div>
             </nav>
@@ -836,7 +1198,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="main-content">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -844,11 +1206,11 @@
                     <p>Discover our premium collection of artisanal skincare and home fragrance products, made with the finest organic ingredients and sustainable practices.</p>
                     <a href="#featured" class="hero-btn">
                         <span>Explore Collection</span>
-                        <span>→</span>
+                        <span aria-hidden="true">→</span>
                     </a>
                 </div>
                 <div class="hero-image">
-                    <img src="pics/Wild Jasmine Website bath.png" alt="Wild Jasmine Premium Body Care" class="hero-product">
+                    <img src="pics/Wild Jasmine Website bath.png" alt="Wild Jasmine Premium Body Care" class="hero-product" width="500" height="500" loading="eager">
                 </div>
             </div>
         </div>
@@ -859,52 +1221,56 @@
         <div class="container">
             <h2 class="section-title">Explore Our Collections</h2>
             <div class="categories-grid">
-                <div class="category-card" onclick="navigateToCategory('skincare')">
-                    <img src="Untitled (1200 x 800 mm)/cats1.png" alt="Premium Natural Skincare Collection" class="category-img">
+                <div class="category-card" onclick="navigateToCategory('skincare')" role="button" tabindex="0">
+                    <img src="Untitled (1200 x 800 mm)/cats1.png" alt="Premium Natural Skincare Collection" class="category-img" width="400" height="280" loading="lazy">
                     <div class="category-content">
                         <h3>Premium Skincare</h3>
                         <p>Luxurious facial treatments and serums crafted with botanical extracts for radiant, healthy skin.</p>
-                        <a href="#" class="btn-outline">Discover</a>
+                        <a href="shop.html?category=skincare" class="btn-outline">Discover</a>
                     </div>
                 </div>
-                <div class="category-card" onclick="navigateToCategory('bath-body')">
-                    <img src="Untitled (1200 x 800 mm)/cats2.png" alt="Luxury Bath & Body Collection" class="category-img">
+                <div class="category-card" onclick="navigateToCategory('bath-body')" role="button" tabindex="0">
+                    <img src="Untitled (1200 x 800 mm)/cats2.png" alt="Luxury Bath & Body Collection" class="category-img" width="400" height="280" loading="lazy">
                     <div class="category-content">
                         <h3>Bath & Body Luxury</h3>
                         <p>Transform your daily routine with our indulgent collection of artisan soaps and body care essentials.</p>
-                        <a href="#" class="btn-outline">Discover</a>
+                        <a href="shop.html?category=bath-body" class="btn-outline">Discover</a>
                     </div>
                 </div>
-                <div class="category-card" onclick="navigateToCategory('candles')">
-                    <img src="Untitled (1200 x 800 mm)/cats3.png" alt="Artisan Soy Candles Collection" class="category-img">
+                <div class="category-card" onclick="navigateToCategory('candles')" role="button" tabindex="0">
+                    <img src="Untitled (1200 x 800 mm)/cats3.png" alt="Artisan Soy Candles Collection" class="category-img" width="400" height="280" loading="lazy">
                     <div class="category-content">
                         <h3>Artisan Candles</h3>
                         <p>Hand-poured soy candles with carefully curated scents to create the perfect ambiance in your home.</p>
-                        <a href="#" class="btn-outline">Discover</a>
+                        <a href="shop.html?category=candles" class="btn-outline">Discover</a>
                     </div>
                 </div>
-                <div class="category-card" onclick="navigateToCategory('gift-sets')">
-                    <img src="Untitled (1200 x 800 mm)/cats4.png" alt="Curated Gift Sets Collection" class="category-img">
+                <div class="category-card" onclick="navigateToCategory('gift-sets')" role="button" tabindex="0">
+                    <img src="Untitled (1200 x 800 mm)/cats4.png" alt="Curated Gift Sets Collection" class="category-img" width="400" height="280" loading="lazy">
                     <div class="category-content">
                         <h3>Curated Gift Sets</h3>
                         <p>Thoughtfully assembled collections perfect for gifting or treating yourself to the ultimate self-care experience.</p>
-                        <a href="#" class="btn-outline">Discover</a>
+                        <a href="shop.html?category=gift-sets" class="btn-outline">Discover</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Products Carousel -->
+    <!-- Featured Products Carousel - Improved -->
     <section class="featured-products" id="featured">
         <div class="container">
             <h2 class="section-title">Featured Products</h2>
             <div class="carousel-container">
                 <div class="carousel-main">
                     <div class="carousel-featured">
-                        <img src="pics/store/bath 3.jpg" alt="Rose Clay Facial Mask" class="featured-image" id="featuredImage">
-                        <button class="carousel-nav nav-prev" onclick="changeProduct(-1)">‹</button>
-                        <button class="carousel-nav nav-next" onclick="changeProduct(1)">›</button>
+                        <img src="pics/store/bath 3.jpg" alt="Rose Clay Facial Mask" class="featured-image" id="featuredImage" width="500" height="500" loading="lazy">
+                        <button class="carousel-nav nav-prev" onclick="changeProduct(-1)" aria-label="Previous Product">
+                            ‹
+                        </button>
+                        <button class="carousel-nav nav-next" onclick="changeProduct(1)" aria-label="Next Product">
+                            ›
+                        </button>
                     </div>
                     <div class="carousel-info">
                         <div class="product-badge" id="productBadge">New Arrival</div>
@@ -915,11 +1281,64 @@
                     </div>
                 </div>
                 <div class="carousel-thumbnails">
-                    <img src="pics/store/bath 3.jpg" alt="Rose Clay Facial Mask" class="thumbnail active" onclick="selectProduct(0)">
-                    <img src="pics/store/candle4.jpg" alt="Lavender Soap Bar" class="thumbnail" onclick="selectProduct(1)">
-                    <img src="pics/store/frag1.jpg" alt="Eucalyptus Soy Candle" class="thumbnail" onclick="selectProduct(2)">
-                    <img src="pics/store/gift 4.jpg" alt="Shea Butter Body Cream" class="thumbnail" onclick="selectProduct(3)">
-                    <img src="pics/Relax Soak Breathe Unwind (1000 x 400 px).png" alt="Vitamin C Facial Serum" class="thumbnail" onclick="selectProduct(4)">
+                    <img src="pics/store/bath 3.jpg" alt="Rose Clay Facial Mask" class="thumbnail active" onclick="selectProduct(0)" width="100" height="100" loading="lazy">
+                    <img src="pics/store/candle4.jpg" alt="Lavender Soap Bar" class="thumbnail" onclick="selectProduct(1)" width="100" height="100" loading="lazy">
+                    <img src="pics/store/frag1.jpg" alt="Eucalyptus Soy Candle" class="thumbnail" onclick="selectProduct(2)" width="100" height="100" loading="lazy">
+                    <img src="pics/store/gift 4.jpg" alt="Shea Butter Body Cream" class="thumbnail" onclick="selectProduct(3)" width="100" height="100" loading="lazy">
+                    <img src="pics/Relax Soak Breathe Unwind (1000 x 400 px).png" alt="Vitamin C Facial Serum" class="thumbnail" onclick="selectProduct(4)" width="100" height="100" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Grid - New Section -->
+    <section class="products-grid-section">
+        <div class="container">
+            <h2 class="section-title">Best Sellers</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-badge">Bestseller</div>
+                    <div class="product-image-container">
+                        <img src="pics/store/bath 3.jpg" alt="Rose Clay Facial Mask" class="product-image" width="300" height="300" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Rose Clay Facial Mask</h3>
+                        <div class="product-price">$24.99</div>
+                        <button class="add-to-cart-small" onclick="addToCart('rose-clay-mask')">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-badge">Organic</div>
+                    <div class="product-image-container">
+                        <img src="pics/store/candle4.jpg" alt="Lavender Soap Bar" class="product-image" width="300" height="300" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Lavender Soap Bar</h3>
+                        <div class="product-price">$12.99</div>
+                        <button class="add-to-cart-small" onclick="addToCart('lavender-soap')">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <div class="product-image-container">
+                        <img src="pics/store/frag1.jpg" alt="Eucalyptus Soy Candle" class="product-image" width="300" height="300" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Eucalyptus Soy Candle</h3>
+                        <div class="product-price">$28.99</div>
+                        <button class="add-to-cart-small" onclick="addToCart('eucalyptus-candle')">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-badge">Popular</div>
+                    <div class="product-image-container">
+                        <img src="pics/store/gift 4.jpg" alt="Shea Butter Body Cream" class="product-image" width="300" height="300" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Shea Butter Body Cream</h3>
+                        <div class="product-price">$19.99</div>
+                        <button class="add-to-cart-small" onclick="addToCart('shea-body-cream')">Add to Cart</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -931,7 +1350,8 @@
             <h2>Join Our Exclusive Community</h2>
             <p>Be the first to discover new arrivals, exclusive offers, and expert beauty tips. Plus, get 15% off your first order when you subscribe.</p>
             <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
-                <input type="email" placeholder="Enter your email address" class="newsletter-input" required>
+                <label for="newsletter-email" class="sr-only">Email Address</label>
+                <input type="email" id="newsletter-email" placeholder="Enter your email address" class="newsletter-input" required>
                 <button type="submit" class="newsletter-btn">Subscribe</button>
             </form>
         </div>
@@ -945,9 +1365,15 @@
                     <h4>Wild Jasmine</h4>
                     <p>Crafting premium natural beauty products with passion, sustainability, and respect for nature. Experience the luxury of pure, handcrafted skincare.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook">📱</a>
-                        <a href="#" class="social-link" aria-label="Instagram">📸</a>
-                        <a href="#" class="social-link" aria-label="Pinterest">📌</a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <span aria-hidden="true">📱</span>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <span aria-hidden="true">📸</span>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Pinterest">
+                            <span aria-hidden="true">📌</span>
+                        </a>
                     </div>
                 </div>
                 <div class="footer-widget">
@@ -972,19 +1398,24 @@
                 </div>
                 <div class="footer-widget">
                     <h4>Contact Info</h4>
-                    <p>📧 hello@wildjasmine.com</p>
-                    <p>📞 (555) 123-4567</p>
-                    <p>📍 123 Beauty Lane<br>Natural City, NC 12345</p>
+                    <p><span aria-hidden="true">📧</span> hello@wildjasmine.com</p>
+                    <p><span aria-hidden="true">📞</span> (555) 123-4567</p>
+                    <p><span aria-hidden="true">📍</span> 123 Beauty Lane<br>Natural City, NC 12345</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Wild Jasmine. All rights reserved. | Handcrafted with 💚 for nature lovers.</p>
+                <p>&copy; 2025 Wild Jasmine. All rights reserved. | Handcrafted with <span aria-hidden="true">💚</span> for nature lovers.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Notification Element -->
+    <div class="notification" id="notification">
+        <span id="notificationMessage">Item added to cart</span>
+    </div>
+
     <script>
-        // Product data
+        // Enhanced Product Data with Schema Markup
         const products = [
             {
                 id: 'rose-clay-mask',
@@ -992,7 +1423,10 @@
                 description: 'A luxurious clay mask infused with rose petals and botanical extracts to purify and rejuvenate your skin, leaving it soft, smooth, and glowing.',
                 price: '$24.99',
                 image: 'pics/store/bath 3.jpg',
-                badge: 'New Arrival'
+                badge: 'New Arrival',
+                sku: 'WJ-ROSE-MASK',
+                rating: 4.8,
+                reviewCount: 142
             },
             {
                 id: 'lavender-soap',
@@ -1000,7 +1434,10 @@
                 description: 'Hand-crafted artisan soap with pure lavender essential oil and organic shea butter. Perfect for sensitive skin and evening relaxation routines.',
                 price: '$12.99',
                 image: 'pics/store/candle4.jpg',
-                badge: 'Best Seller'
+                badge: 'Best Seller',
+                sku: 'WJ-LAV-SOAP',
+                rating: 4.9,
+                reviewCount: 89
             },
             {
                 id: 'eucalyptus-candle',
@@ -1008,7 +1445,10 @@
                 description: 'Premium soy wax candle with eucalyptus and mint essential oils. Creates a spa-like atmosphere with 45+ hours of clean burning.',
                 price: '$28.99',
                 image: 'pics/store/frag1.jpg',
-                badge: 'Limited Edition'
+                badge: 'Limited Edition',
+                sku: 'WJ-EUC-CANDLE',
+                rating: 4.7,
+                reviewCount: 56
             },
             {
                 id: 'shea-body-cream',
@@ -1016,7 +1456,10 @@
                 description: 'Rich, nourishing body cream made with organic shea butter and vitamin E. Provides long-lasting hydration for silky smooth skin.',
                 price: '$19.99',
                 image: 'pics/store/gift 4.jpg',
-                badge: 'Organic'
+                badge: 'Organic',
+                sku: 'WJ-SHEA-CREAM',
+                rating: 4.8,
+                reviewCount: 112
             },
             {
                 id: 'vitamin-c-serum',
@@ -1024,7 +1467,10 @@
                 description: 'Potent anti-aging serum with 20% vitamin C, hyaluronic acid, and botanical extracts. Brightens skin and reduces fine lines.',
                 price: '$34.99',
                 image: 'pics/Relax Soak Breathe Unwind (1000 x 400 px).png',
-                badge: 'Premium'
+                badge: 'Premium',
+                sku: 'WJ-VITC-SERUM',
+                rating: 4.9,
+                reviewCount: 203
             }
         ];
 
@@ -1035,7 +1481,49 @@
         document.addEventListener('DOMContentLoaded', function() {
             updateCartCount();
             setupScrollEffects();
+            generateProductSchema();
+            
+            // Set initial product display
+            updateProductDisplay();
+            updateThumbnails();
+            
+            // Auto-advance carousel
+            setInterval(() => {
+                changeProduct(1);
+            }, 8000);
         });
+
+        // Generate Schema.org markup for products
+        function generateProductSchema() {
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            
+            const productOffers = products.map(product => ({
+                "@type": "Product",
+                "name": product.name,
+                "description": product.description,
+                "image": product.image,
+                "sku": product.sku,
+                "offers": {
+                    "@type": "Offer",
+                    "price": product.price.replace('$', ''),
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock"
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": product.rating,
+                    "reviewCount": product.reviewCount
+                }
+            }));
+            
+            script.textContent = JSON.stringify({
+                "@context": "https://schema.org",
+                "@graph": productOffers
+            });
+            
+            document.head.appendChild(script);
+        }
 
         // Product carousel functionality
         function selectProduct(index) {
@@ -1072,79 +1560,6 @@
             });
         }
 
-        // Shopping cart functionality
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            if (product) {
-                const existingItem = cart.find(item => item.id === productId);
-                if (existingItem) {
-                    existingItem.quantity += 1;
-                } else {
-                    cart.push({
-                        id: product.id,
-                        name: product.name,
-                        price: product.price,
-                        image: product.image,
-                        quantity: 1
-                    });
-                }
-                updateCartCount();
-                showAddToCartNotification(product.name);
-            }
-        }
-
-        function updateCartCount() {
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.querySelector('.cart-count').textContent = totalItems;
-        }
-
-        function showAddToCartNotification(productName) {
-            // Create and show notification
-            const notification = document.createElement('div');
-            notification.className = 'cart-notification';
-            notification.textContent = `${productName} added to cart!`;
-            notification.style.cssText = `
-                position: fixed;
-                top: 100px;
-                right: 20px;
-                background: var(--primary);
-                color: white;
-                padding: 12px 24px;
-                border-radius: 8px;
-                z-index: 10000;
-                animation: slideInRight 0.3s ease-out;
-            `;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.style.animation = 'slideOutRight 0.3s ease-out';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 2000);
-        }
-
-        function toggleCart() {
-            // Simple cart toggle - in a real implementation, this would show a cart sidebar
-            if (cart.length === 0) {
-                alert('Your cart is empty. Add some products first!');
-                return;
-            }
-            
-            let cartContent = 'Your Cart:\n\n';
-            let total = 0;
-            cart.forEach(item => {
-                const price = parseFloat(item.price.replace('$', ''));
-                const itemTotal = price * item.quantity;
-                total += itemTotal;
-                cartContent += `${item.name} x${item.quantity} - $${itemTotal.toFixed(2)}\n`;
-            });
-            cartContent += `\nTotal: $${total.toFixed(2)}`;
-            
-            alert(cartContent);
-        }
-
         // Category navigation
         function navigateToCategory(category) {
             // In a real implementation, this would navigate to category pages
@@ -1156,36 +1571,76 @@
         // Newsletter subscription
         function handleNewsletterSubmit(event) {
             event.preventDefault();
-            const email = event.target.querySelector('.newsletter-input').value;
+            const emailInput = event.target.querySelector('.newsletter-input');
+            const email = emailInput.value;
             
             // Simple validation
             if (!email || !email.includes('@')) {
-                alert('Please enter a valid email address.');
+                showNotification('Please enter a valid email address.', 'error');
                 return;
             }
             
             // Simulate subscription
-            alert('Thank you for subscribing! Check your email for a 15% off coupon.');
+            showNotification('Thank you for subscribing! Check your email for a 15% off coupon.');
             event.target.reset();
         }
 
         // Mobile menu toggle
         function toggleMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.display = 'none';
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+            
+            // Toggle aria-expanded for accessibility
+            const isExpanded = navLinks.classList.contains('active');
+            document.querySelector('.mobile-menu').setAttribute('aria-expanded', isExpanded);
+        }
+
+        // Cart functionality
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity += 1;
             } else {
-                navLinks.style.display = 'flex';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.left = '0';
-                navLinks.style.right = '0';
-                navLinks.style.background = 'white';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.padding = '20px';
-                navLinks.style.boxShadow = 'var(--shadow-light)';
-                navLinks.style.zIndex = '1000';
+                cart.push({
+                    id: productId,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1
+                });
             }
+            
+            updateCartCount();
+            showNotification(`${product.name} added to cart`);
+        }
+
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.querySelector('.cart-count').textContent = count;
+        }
+
+        function toggleCart() {
+            // In a real implementation, this would show/hide the cart dropdown
+            console.log('Cart items:', cart);
+            showNotification('Cart functionality would open here');
+        }
+
+        // Notification system
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const messageElement = document.getElementById('notificationMessage');
+            
+            messageElement.textContent = message;
+            notification.className = 'notification';
+            notification.classList.add(type);
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
         }
 
         // Scroll effects
@@ -1205,8 +1660,8 @@
                 });
             }, observerOptions);
 
-            // Observe category cards
-            document.querySelectorAll('.category-card').forEach(card => {
+            // Observe elements
+            document.querySelectorAll('.category-card, .product-card').forEach(card => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(30px)';
                 card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -1225,12 +1680,7 @@
             });
         }
 
-        // Auto-advance carousel
-        setInterval(() => {
-            changeProduct(1);
-        }, 8000);
-
-        // Keyboard navigation
+        // Keyboard navigation for carousel
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') {
                 changeProduct(-1);
@@ -1239,37 +1689,16 @@
             }
         });
 
-        // Add CSS animations for notifications
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideInRight {
-                from {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-            
-            @keyframes slideOutRight {
-                from {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-                to {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-            }
-            
-            .cart-notification {
-                box-shadow: var(--shadow-medium);
-                font-weight: 600;
-            }
-        `;
-        document.head.appendChild(style);
+        // Service worker registration for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').then(registration => {
+                    console.log('ServiceWorker registration successful');
+                }).catch(err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
     </script>
 </body>
 </html>
