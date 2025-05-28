@@ -896,23 +896,6 @@
             });
         });
 
-        // Cart functionality (basic implementation)
-        let cartCount = 0;
-        const cartCountElement = document.querySelector('.cart-count');
-
-        function updateCartCount() {
-            if (cartCountElement) {
-                cartCountElement.textContent = cartCount;
-            }
-        }
-
-        // Initialize cart count from localStorage if available
-        const savedCartCount = localStorage.getItem('cartCount');
-        if (savedCartCount) {
-            cartCount = parseInt(savedCartCount);
-            updateCartCount();
-        }
-
         // Parallax effect for page header
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
@@ -1030,6 +1013,13 @@
             // Set up any additional event listeners
             console.log('Wild Jasmine About page loaded successfully!');
         });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // ...other code...
+            if (typeof updateCartDisplay === "function") {
+                updateCartDisplay();
+            }
+});
     </script>
 </body>
 </html>
