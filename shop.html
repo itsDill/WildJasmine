@@ -32,17 +32,17 @@
                             <input type="checkbox" id="darkModeToggle">
                             <span class="slider"></span>
                         </label>
-                    </div>
-                    <a href="cart.html" class="cart-link" aria-label="View Cart">
-                        <div class="cart-icon">
-                            <i>🛒</i>
-                            <span class="cart-count">0</span>
-                        </div>
-                    </a>
-                    <div class="mobile-menu" id="mobileMenu">
-                        <i>☰</i>
-                    </div>
                 </div>
+                <a href="cart.html" class="cart-link" aria-label="View Cart">
+                    <div class="cart-icon">
+                        <span aria-hidden="true">🛒</span>
+                        <span class="cart-count">0</span>
+                    </div>
+                </a>
+                <div class="mobile-menu" id="mobileMenu" onclick="toggleMobileMenu()" aria-label="Menu" role="button" tabindex="0">
+                    <span aria-hidden="true">☰</span>
+                </div>
+</div>
             </nav>
         </div>
     </header>

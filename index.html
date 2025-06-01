@@ -1064,15 +1064,17 @@
                             <input type="checkbox" id="darkModeToggle">
                             <span class="slider"></span>
                         </label>
-                    </div>
-                    <div class="cart-icon" onclick="toggleCart()" aria-label="Shopping Cart" role="button" tabindex="0">
+                </div>
+                <a href="cart.html" class="cart-link" aria-label="View Cart">
+                    <div class="cart-icon">
                         <span aria-hidden="true">🛒</span>
                         <span class="cart-count">0</span>
                     </div>
-                    <div class="mobile-menu" onclick="toggleMobileMenu()" aria-label="Menu" role="button" tabindex="0">
-                        <span aria-hidden="true">☰</span>
-                    </div>
+                </a>
+                <div class="mobile-menu" id="mobileMenu" onclick="toggleMobileMenu()" aria-label="Menu" role="button" tabindex="0">
+                    <span aria-hidden="true">☰</span>
                 </div>
+</div>
             </nav>
         </div>
     </header>
