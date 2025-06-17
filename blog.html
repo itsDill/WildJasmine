@@ -1252,14 +1252,6 @@
         });
       }
 
-      // Mobile Menu Toggle
-      const mobileMenu = document.querySelector(".mobile-menu");
-      const navLinks = document.querySelector(".nav-links");
-
-      mobileMenu.addEventListener("click", function () {
-        navLinks.classList.toggle("show");
-      });
-
       // Search Functionality
       const searchForm = document.querySelector(".search-form");
       const searchInput = document.querySelector(".search-input");
@@ -1393,17 +1385,40 @@
       }, 10);
 
       window.addEventListener("scroll", debouncedScrollHandler);
-
-      // --- Mobile Menu ---
+    </script>
+    <script src="js/cart.js"></script>
+    <script>
       function toggleMobileMenu() {
         const navLinks = document.getElementById("navLinks");
         navLinks.classList.toggle("active");
+        const mobileMenu = document.getElementById("mobileMenu");
         const isExpanded = navLinks.classList.contains("active");
-        document
-          .querySelector(".mobile-menu")
-          .setAttribute("aria-expanded", isExpanded);
+        if (mobileMenu) mobileMenu.setAttribute("aria-expanded", isExpanded);
       }
+
+      // Optional: Close menu when clicking outside
+      document.addEventListener("click", function (e) {
+        const navLinks = document.getElementById("navLinks");
+        const mobileMenu = document.getElementById("mobileMenu");
+        if (
+          navLinks.classList.contains("active") &&
+          !navLinks.contains(e.target) &&
+          !mobileMenu.contains(e.target)
+        ) {
+          navLinks.classList.remove("active");
+          mobileMenu.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      // Optional: Close menu on Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          const navLinks = document.getElementById("navLinks");
+          const mobileMenu = document.getElementById("mobileMenu");
+          navLinks.classList.remove("active");
+          if (mobileMenu) mobileMenu.setAttribute("aria-expanded", "false");
+        }
+      });
     </script>
-    <script src="js/cart.js"></script>
   </body>
 </html>

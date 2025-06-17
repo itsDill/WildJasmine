@@ -922,33 +922,6 @@
       // Run animation check on page load
       window.addEventListener("load", animateOnScroll);
 
-      // Mobile menu functionality
-      const mobileMenu = document.querySelector(".mobile-menu");
-      const navLinks = document.querySelector(".nav-links");
-
-      if (mobileMenu && navLinks) {
-        mobileMenu.addEventListener("click", () => {
-          navLinks.classList.toggle("show");
-          mobileMenu.classList.toggle("active");
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener("click", (e) => {
-          if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target)) {
-            navLinks.classList.remove("show");
-            mobileMenu.classList.remove("active");
-          }
-        });
-
-        // Close mobile menu when window is resized
-        window.addEventListener("resize", () => {
-          if (window.innerWidth > 768) {
-            navLinks.classList.remove("show");
-            mobileMenu.classList.remove("active");
-          }
-        });
-      }
-
       // Smooth scrolling for anchor links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
@@ -1091,16 +1064,39 @@
           updateCartDisplay();
         }
       });
-
-      // --- Mobile Menu ---
+    </script>
+    <script>
       function toggleMobileMenu() {
         const navLinks = document.getElementById("navLinks");
         navLinks.classList.toggle("active");
+        const mobileMenu = document.getElementById("mobileMenu");
         const isExpanded = navLinks.classList.contains("active");
-        document
-          .querySelector(".mobile-menu")
-          .setAttribute("aria-expanded", isExpanded);
+        if (mobileMenu) mobileMenu.setAttribute("aria-expanded", isExpanded);
       }
+
+      // Optional: Close menu when clicking outside
+      document.addEventListener("click", function (e) {
+        const navLinks = document.getElementById("navLinks");
+        const mobileMenu = document.getElementById("mobileMenu");
+        if (
+          navLinks.classList.contains("active") &&
+          !navLinks.contains(e.target) &&
+          !mobileMenu.contains(e.target)
+        ) {
+          navLinks.classList.remove("active");
+          mobileMenu.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      // Optional: Close menu on Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          const navLinks = document.getElementById("navLinks");
+          const mobileMenu = document.getElementById("mobileMenu");
+          navLinks.classList.remove("active");
+          if (mobileMenu) mobileMenu.setAttribute("aria-expanded", "false");
+        }
+      });
     </script>
   </body>
 </html>
