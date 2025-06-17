@@ -40,6 +40,53 @@
     <link rel="stylesheet" href="css/styles.css" />
 
     <style>
+      /* Hero Section Styles */
+      .hero-section,
+      .page-header {
+        background: linear-gradient(
+          120deg,
+          var(--primary, #8a7968) 0%,
+          var(--secondary, #a5a58d) 100%
+        );
+        color: #fff;
+        padding: 80px 0 60px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section .container,
+      .page-header .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-content h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 2.8rem;
+        margin-bottom: 18px;
+        letter-spacing: 1px;
+      }
+
+      .hero-content p {
+        font-size: 1.25rem;
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0.95;
+      }
+
+      @media (max-width: 768px) {
+        .hero-section,
+        .page-header {
+          padding: 50px 0 30px 0;
+        }
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+        .hero-content p {
+          font-size: 1rem;
+        }
+      }
       /* Contact Section */
       .contact-section {
         padding: 80px 0;
@@ -601,14 +648,7 @@
       <!-- Page Header -->
       <section class="page-header">
         <div class="container">
-          <div class="page-header-content fade-in">
-            <h1>Get in Touch</h1>
-            <p>
-              We'd love to hear from you! Whether you have questions about our
-              products, need customer support, or want to explore wholesale
-              opportunities, we're here to help.
-            </p>
-          </div>
+          <div class="page-header-content fade-in"></div>
         </div>
       </section>
 

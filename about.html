@@ -39,6 +39,53 @@
     <link rel="stylesheet" href="css/styles.css" />
 
     <style>
+      /* Hero Section Styles */
+      .hero-section,
+      .page-header {
+        background: linear-gradient(
+          120deg,
+          var(--primary, #8a7968) 0%,
+          var(--secondary, #a5a58d) 100%
+        );
+        color: #fff;
+        padding: 80px 0 60px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section .container,
+      .page-header .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-content h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 2.8rem;
+        margin-bottom: 18px;
+        letter-spacing: 1px;
+      }
+
+      .hero-content p {
+        font-size: 1.25rem;
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0.95;
+      }
+
+      @media (max-width: 768px) {
+        .hero-section,
+        .page-header {
+          padding: 50px 0 30px 0;
+        }
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+        .hero-content p {
+          font-size: 1rem;
+        }
+      }
       /* About Sections */
       .about-section {
         padding: 80px 0;
@@ -487,13 +534,7 @@
     <!-- Page Header -->
     <section class="page-header">
       <div class="container">
-        <div class="page-header-content">
-          <h1>About Wild Jasmine</h1>
-          <p>
-            Discover our passion for natural beauty, sustainable practices, and
-            the art of handcrafted skincare
-          </p>
-        </div>
+        <div class="page-header-content"></div>
       </div>
     </section>
 
@@ -1043,13 +1084,16 @@
           updateCartDisplay();
         }
       });
-    </script>
-    <script>
+
+      // --- Mobile Menu ---
       function toggleMobileMenu() {
         const navLinks = document.getElementById("navLinks");
         navLinks.classList.toggle("active");
+        const isExpanded = navLinks.classList.contains("active");
+        document
+          .querySelector(".mobile-menu")
+          .setAttribute("aria-expanded", isExpanded);
       }
     </script>
-    <script src="js/mobile.js"></script>
   </body>
 </html>
