@@ -730,36 +730,53 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container">
-            <nav>
-                <a href="#" class="logo">
-                    <img src="pics/Wild Jasmine Website logo.png" alt="Wild Jasmine Logo">
-                    Wild Jasmine
-                </a>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html" class="active">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                <div class="header-right">
-                    <div class="toggle-container">
-                        <span class="toggle-label">Dark</span>
-                        <label class="toggle">
-                            <input type="checkbox" id="darkModeToggle">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                    <div class="mobile-menu">
-                        <i>☰</i>
-                    </div>
+          <nav>
+            <a href="#" class="logo" aria-label="Wild Jasmine Home">
+              <img
+                src="pics/Wild Jasmine Website logo.png"
+                alt="Wild Jasmine Logo"
+                width="40"
+                height="40"
+              />
+              Wild Jasmine
+            </a>
+            <ul class="nav-links" id="navLinks">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="header-right">
+              <div class="toggle-container">
+                <span class="toggle-label">Dark</span>
+                <label class="toggle">
+                  <input type="checkbox" id="darkModeToggle" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <a href="cart.html" class="cart-link" aria-label="View Cart">
+                <div class="cart-icon">
+                  <span aria-hidden="true">🛒</span>
+                  <span class="cart-count">0</span>
                 </div>
-            </nav>
+              </a>
+              <div
+                class="mobile-menu"
+                id="mobileMenu"
+                onclick="toggleMobileMenu()"
+                aria-label="Menu"
+                role="button"
+                tabindex="0"
+              >
+                <span aria-hidden="true">☰</span>
+              </div>
+            </div>
+          </nav>
         </div>
-    </header>
+      </header>
 
     <!-- Blog Hero -->
     <section class="blog-hero">
@@ -1247,5 +1264,6 @@
 
         window.addEventListener('scroll', debouncedScrollHandler);
     </script>
+    <script src="js/cart.js"></script>
 </body>
 </html>

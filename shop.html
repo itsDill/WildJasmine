@@ -1,51 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - Wild Jasmine</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/store.css">
+    <head>
+        <!-- Improved Meta Tags for SEO -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+          Wild Jasmine | Premium Natural Handcrafted Skincare & Beauty Products
+        </title>
+        <meta
+          name="description"
+          content="Wild Jasmine offers luxury natural skincare, handmade soaps, artisan bath bombs & soy candles. Cruelty
+        />
+        <meta
+          name="keywords"
+          content="natural skincare, organic beauty, handmade soap, bath bombs, soy candles, cruelty-free, sustainable be
+        />
+        <meta name="author" content="Wild Jasmine" />
+        <meta name="robots" content="index, follow" />
+        <meta name="theme-color" content="#8a7968" />
+        <!-- Open Graph / Social Media Meta Tags -->
+        <meta
+          property="og:title"
+          content="Wild Jasmine | Premium Natural Handcrafted Beauty Products"
+        />
+        <meta
+          property="og:description"
+          content="Discover our luxury collection of premium skincare and home fragrance products made with organic ingre
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.wildjasmine.com" />
+        <meta
+          property="og:image"
+          content="https://www.wildjasmine.com/images/social-share.jpg"
+        />
+        <meta property="og:site_name" content="Wild Jasmine" />
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Wild Jasmine | Premium Natural Handcrafted Beauty Products"
+        />
+        <meta
+          name="twitter:description"
+          content="Discover our luxury collection of premium skincare and home fragrance products made with organic ingre
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.wildjasmine.com/images/social-share.jpg"
+        />
+        <!-- Favicon -->
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://www.wildjasmine.com" />
+        <!-- Preload Critical Resources -->
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;
+          as="style"
+        />
+        <link rel="preload" href="pics/Wild Jasmine Website bath.png" as="image" />
+        <!-- Google Fonts -->
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;
+          rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/store.css" />
+        <!-- Structured Data for SEO -->
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Wild Jasmine",
+            "url": "https://www.wildjasmine.com",
+            "logo": "https://www.wildjasmine.com/pics/Wild Jasmine Website logo.png",
+            "description": "Premium natural handcrafted skincare and beauty products",
+            "sameAs": [
+              "https://www.facebook.com/wildjasmine",
+              "https://www.instagram.com/wildjasmine",
+              "https://www.pinterest.com/wildjasmine"
+            ]
+          }
+        </script>
 </head>
 <body>
     </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container">
-            <nav>
-                <a href="index.html" class="logo">
-                    <img src="pics/Wild Jasmine Website logo.png" alt="Wild Jasmine Logo">
-                    Wild Jasmine
-                </a>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                <div class="header-right">
-                    <div class="toggle-container">
-                        <span class="toggle-label">Dark</span>
-                        <label class="toggle">
-                            <input type="checkbox" id="darkModeToggle">
-                            <span class="slider"></span>
-                        </label>
+          <nav>
+            <a href="#" class="logo" aria-label="Wild Jasmine Home">
+              <img
+                src="pics/Wild Jasmine Website logo.png"
+                alt="Wild Jasmine Logo"
+                width="40"
+                height="40"
+              />
+              Wild Jasmine
+            </a>
+            <ul class="nav-links" id="navLinks">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="header-right">
+              <div class="toggle-container">
+                <span class="toggle-label">Dark</span>
+                <label class="toggle">
+                  <input type="checkbox" id="darkModeToggle" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <a href="cart.html" class="cart-link" aria-label="View Cart">
+                <div class="cart-icon">
+                  <span aria-hidden="true">🛒</span>
+                  <span class="cart-count">0</span>
                 </div>
-                <a href="cart.html" class="cart-link" aria-label="View Cart">
-                    <div class="cart-icon">
-                        <span aria-hidden="true">🛒</span>
-                        <span class="cart-count">0</span>
-                    </div>
-                </a>
-                <div class="mobile-menu" id="mobileMenu" onclick="toggleMobileMenu()" aria-label="Menu" role="button" tabindex="0">
-                    <span aria-hidden="true">☰</span>
-                </div>
-</div>
-            </nav>
+              </a>
+              <div
+                class="mobile-menu"
+                id="mobileMenu"
+                onclick="toggleMobileMenu()"
+                aria-label="Menu"
+                role="button"
+                tabindex="0"
+              >
+                <span aria-hidden="true">☰</span>
+              </div>
+            </div>
+          </nav>
         </div>
-    </header>
+      </header>
     
     <!-- Shop Hero -->
     <section class="shop-hero">
