@@ -880,7 +880,7 @@
           <article class="featured-card">
             <div class="featured-image">
               <img
-                src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=800&h=400&fit=crop&crop=center"
+                src="Untitled (1200 x 800 mm)/cats1.png"
                 alt="New Rose Clay Collection"
                 loading="lazy"
               />
@@ -890,7 +890,6 @@
             <div class="featured-content">
               <div class="post-meta">
                 <span class="meta-item"> 📅 January 15, 2025 </span>
-                <span class="meta-item"> 👤 Sarah Mitchell </span>
                 <span class="meta-item"> ⏱️ 5 min read </span>
               </div>
               <h2 class="featured-title">
@@ -919,7 +918,7 @@
               <article class="blog-card fade-in">
                 <div class="blog-image">
                   <img
-                    src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=250&fit=crop&crop=center"
+                    src="pics/store/bath 3.jpg"
                     alt="Winter Skincare Tips"
                     loading="lazy"
                   />
@@ -945,7 +944,7 @@
               <article class="blog-card fade-in">
                 <div class="blog-image">
                   <img
-                    src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=250&fit=crop&crop=center"
+                    src="Untitled (1200 x 800 mm)/cats4.png"
                     alt="DIY Face Mask"
                     loading="lazy"
                   />
@@ -971,7 +970,7 @@
               <article class="blog-card fade-in">
                 <div class="blog-image">
                   <img
-                    src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=250&fit=crop&crop=center"
+                    src="pics/Gift Set 1.jpg"
                     alt="Sustainable Beauty"
                     loading="lazy"
                   />
@@ -1260,6 +1259,8 @@
       </div>
     </footer>
 
+    <script src="js/cart.js"></script>
+
     <script>
       // Mobile Menu Toggle
       function toggleMobileMenu(e) {
@@ -1331,32 +1332,6 @@
         });
       });
 
-      // Lazy loading for images
-      if ("loading" in HTMLImageElement.prototype) {
-        // Native lazy loading is supported
-        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-        lazyImages.forEach((img) => {
-          img.src = img.dataset.src;
-        });
-      } else {
-        // Fallback for browsers without native lazy loading
-        const lazyLoadObserver = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                observer.unobserve(img);
-              }
-            });
-          }
-        );
-
-        document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
-          lazyLoadObserver.observe(img);
-        });
-      }
-
       // Add fade-in animation when elements come into view
       const fadeElements = document.querySelectorAll(".fade-in");
       const fadeObserver = new IntersectionObserver(
@@ -1374,16 +1349,10 @@
         fadeObserver.observe(el);
       });
 
-      // Update cart count (example - would be replaced with real cart logic)
-      function updateCartCount() {
-        // In a real implementation, this would fetch from your cart system
-        const cartCount = localStorage.getItem("cartCount") || 0;
-        document.querySelector(".cart-count").textContent = cartCount;
-      }
-
-      // Initialize
       document.addEventListener("DOMContentLoaded", function () {
-        updateCartCount();
+        if (typeof updateCartDisplay === "function") {
+          updateCartDisplay();
+        }
       });
     </script>
   </body>
