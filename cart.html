@@ -113,7 +113,7 @@
             />
             Wild Jasmine
           </a>
-          <ul class="nav-links">
+          <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
             <li><a href="about.html">About</a></li>
@@ -143,8 +143,15 @@
                 <span class="cart-count">0</span>
               </div>
             </a>
-            <div class="mobile-menu">
-              <i>☰</i>
+            <div
+              class="mobile-menu"
+              id="mobileMenu"
+              onclick="toggleMobileMenu(event)"
+              aria-label="Menu"
+              role="button"
+              tabindex="0"
+            >
+              <span aria-hidden="true">☰</span>
             </div>
           </div>
         </nav>

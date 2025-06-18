@@ -1386,14 +1386,6 @@
 
       window.addEventListener("scroll", debouncedScrollHandler);
 
-      function toggleMobileMenu() {
-        const navLinks = document.getElementById("navLinks");
-        navLinks.classList.toggle("active");
-        const mobileMenu = document.getElementById("mobileMenu");
-        const isExpanded = navLinks.classList.contains("active");
-        if (mobileMenu) mobileMenu.setAttribute("aria-expanded", isExpanded);
-      }
-
       // Optional: Close menu when clicking outside
       document.addEventListener("click", function (e) {
         const navLinks = document.getElementById("navLinks");
