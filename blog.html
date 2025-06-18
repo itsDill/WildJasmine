@@ -1230,6 +1230,8 @@
       </div>
     </footer>
 
+    <script src="js/cart.js"></script>
+
     <script>
       const darkModeToggle = document.getElementById("darkModeToggle");
       const body = document.body;
@@ -1386,11 +1388,7 @@
 
       window.addEventListener("scroll", debouncedScrollHandler);
 
-      function toggleMobileMenu(e) {
-        if (e) {
-          e.stopPropagation();
-          e.stopImmediatePropagation();
-        }
+      function toggleMobileMenu() {
         const navLinks = document.getElementById("navLinks");
         navLinks.classList.toggle("active");
         const mobileMenu = document.getElementById("mobileMenu");
@@ -1399,22 +1397,18 @@
       }
 
       // Optional: Close menu when clicking outside
-      document.addEventListener(
-        "click",
-        function (e) {
-          const navLinks = document.getElementById("navLinks");
-          const mobileMenu = document.getElementById("mobileMenu");
-          if (
-            navLinks.classList.contains("active") &&
-            !navLinks.contains(e.target) &&
-            !mobileMenu.contains(e.target)
-          ) {
-            navLinks.classList.remove("active");
-            mobileMenu.setAttribute("aria-expanded", "false");
-          }
-        },
-        true
-      ); // <-- Use capture phase
+      document.addEventListener("click", function (e) {
+        const navLinks = document.getElementById("navLinks");
+        const mobileMenu = document.getElementById("mobileMenu");
+        if (
+          navLinks.classList.contains("active") &&
+          !navLinks.contains(e.target) &&
+          !mobileMenu.contains(e.target)
+        ) {
+          navLinks.classList.remove("active");
+          mobileMenu.setAttribute("aria-expanded", "false");
+        }
+      });
 
       // Optional: Close menu on Escape key
       document.addEventListener("keydown", function (e) {
