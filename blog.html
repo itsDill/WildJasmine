@@ -806,7 +806,7 @@
             <div
               class="mobile-menu"
               id="mobileMenu"
-              onclick="toggleMobileMenu()"
+              onclick="toggleMobileMenu(event)"
               aria-label="Menu"
               role="button"
               tabindex="0"
@@ -1410,7 +1410,8 @@
         }
       });
 
-      function toggleMobileMenu() {
+      function toggleMobileMenu(e) {
+        if (e) e.stopPropagation();
         const navLinks = document.getElementById("navLinks");
         navLinks.classList.toggle("active");
         const mobileMenu = document.getElementById("mobileMenu");
