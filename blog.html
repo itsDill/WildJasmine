@@ -1409,6 +1409,14 @@
           if (mobileMenu) mobileMenu.setAttribute("aria-expanded", "false");
         }
       });
+
+      function toggleMobileMenu() {
+        const navLinks = document.getElementById("navLinks");
+        navLinks.classList.toggle("active");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const isExpanded = navLinks.classList.contains("active");
+        if (mobileMenu) mobileMenu.setAttribute("aria-expanded", isExpanded);
+      }
     </script>
     <script src="js/cart.js"></script>
   </body>
